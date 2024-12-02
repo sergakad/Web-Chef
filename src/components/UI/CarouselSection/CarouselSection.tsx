@@ -18,19 +18,19 @@ const CarouselSection: FC<ICarouselSection> = ({
   desktopItemsPerView = 3,
   tabletItemsPerView = 2,
   desktopPartialVisible = 0,
-  tabletPartialVisible = 0,
+  tabletPartialVisible = 300,
   autoplay = true,
   draggable = false,
   ...props
 }) => {
   const responsive = {
     desktop: {
-      breakpoint: { max: 4000, min: 1400 },
+      breakpoint: { max: 4000, min: 1910 },
       items: desktopItemsPerView,
       partialVisibilityGutter: desktopPartialVisible,
     },
     tablet: {
-      breakpoint: { max: 1400, min: 1000 },
+      breakpoint: { max: 1910, min: 1000 },
       items: tabletItemsPerView,
       partialVisibilityGutter: tabletPartialVisible,
     },
@@ -43,6 +43,8 @@ const CarouselSection: FC<ICarouselSection> = ({
       partialVisible
       draggable={draggable}
       autoPlay={autoplay}
+      arrows
+      infinite
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >

@@ -20,7 +20,7 @@ const RandomMealCard: FC<IRandomMealProps> = ({
   image,
 }) => {
   return (
-    <Link href={`${id}`}>
+    <Link className={s.link} href={`${id}`}>
       <div className={s.imageWrapper}>
         <Image
           className={s.image}
@@ -32,10 +32,12 @@ const RandomMealCard: FC<IRandomMealProps> = ({
           draggable={false}
         />
       </div>
-      <h3>{name}</h3>
-      <div className={s.badgeWrapper}>
-        <Badge>{category}</Badge>
-        <Badge>{area}</Badge>
+      <div className={s.content}>
+        <h3 className={s.name}>{name}</h3>
+        <div className={s.badgeWrapper}>
+          <Badge>{category}</Badge>
+          <Badge>{area}</Badge>
+        </div>
       </div>
     </Link>
   );

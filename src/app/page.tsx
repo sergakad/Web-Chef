@@ -7,7 +7,7 @@ import { useCategoriesStore } from "@/shared/stores/categories-store";
 import { useMealsStore } from "@/shared/stores/meals-store";
 import { GetCategories } from "@/api/CategoryHttp";
 import { GetRandomMeal } from "@/api/RandomMealHttp";
-import css from "./page.module.scss";
+import s from "./page.module.scss";
 
 export default function Home() {
   const isLoadingCategories = useCategoriesStore(
@@ -35,26 +35,28 @@ export default function Home() {
         setLoadingCategories(false);
       }
     })();
-    (async () => {
-      const data = await GetRandomMeal();
-      if (Array.isArray(data)) {
-        setMeals(data);
-        setMeals(data);
-        setMeals(data);
-        setMeals(data);
-        setMeals(data);
-        setLoadingMeals(false);
-      }
-    })();
+    for (let i = 0; i < 5; i += 1) {
+      (async () => {
+        const data = await GetRandomMeal();
+        if (Array.isArray(data)) {
+          setMeals(data);
+        }
+      })();
+    }
+    setLoadingMeals(false);
   }, []);
 
   return (
-    <main className={css.main}>
+    <main className={s.main}>
+      <h2 className={s.title}>Cook it right now</h2>
       {isLoadingMeals ? (
         <div>Loading...</div>
       ) : (
-        <RandomMealCarouselSection />
+        <div className={s.randomMealCarouselSection}>
+          <RandomMealCarouselSection />
+        </div>
       )}
+      <h2 className={s.title}>Categories</h2>
       {isLoadingCategories ? (
         <div>Loading...</div>
       ) : (
