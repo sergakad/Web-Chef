@@ -1,0 +1,55 @@
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.card {
+  width: 440px;
+  height: 600px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--main);
+  background-color: var(--main-light);
+  display: flex;
+  gap: 20px;
+}
+.card:hover {
+    box-shadow: 0px 0px 10px 20px var(--gray);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.image {
+  border-radius: 20px;
+  object-fit: cover;
+}
+.imageWrapper {
+  position: relative;
+  width: auto;
+  height: 250px;
+}
+
+.nameWrapper {
+  position: relative;
+  height: 60px;
+  width: fit-content;
+  padding: 10px;
+  background-color: var(--main);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-items: left;
+}
+
+.name {
+  color: var(--white);
+}
+
+.descriptionWrapper {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}

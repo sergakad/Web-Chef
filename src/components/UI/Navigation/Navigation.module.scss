@@ -1,0 +1,17 @@
+.navigation {
+  border: 2px solid var(--main);
+  border-radius: 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--main-light);
+  padding: 0 20px;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.linkWrapper:hover{
+    border-bottom: 2px solid var(--main);
+}
