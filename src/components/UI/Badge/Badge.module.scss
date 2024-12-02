@@ -1,0 +1,13 @@
+.badge {
+  position: relative;
+  height: 20px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  line-height: 130%;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  justify-content: center;
+  border: 1px var(--main) solid;
+}

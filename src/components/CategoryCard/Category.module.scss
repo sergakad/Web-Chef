@@ -4,8 +4,8 @@
   color: inherit;
 }
 .card {
+  height: 544px;
   width: 440px;
-  height: 600px;
   padding: 20px;
   border-radius: 20px;
   border: 2px solid var(--main);
@@ -49,7 +49,11 @@
 }
 
 .descriptionWrapper {
+  min-height: 50px;
+  max-height: 150px; //
   padding: 10px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
+  overflow-y: clip;  // адаптировать 
+  word-wrap: break-word;
 }

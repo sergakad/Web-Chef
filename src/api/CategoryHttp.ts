@@ -1,15 +1,6 @@
-import axios from "axios";
-import { $api } from ".";
 import { ICategories } from "@/shared/interfaces/category.interface";
-
-const ErrorHandler = (error: unknown): string => {
-  if (axios.isAxiosError(error)) {
-    console.error("error message: ", error.message);
-    return error.message;
-  }
-  console.error("unexpected error: ", error);
-  return "An unexpected error occurred";
-};
+import { ErrorHandler } from "./ErrorHandler";
+import { $api } from ".";
 
 const GetCategories = async (): Promise<
   ICategories | string
@@ -23,7 +14,7 @@ const GetCategories = async (): Promise<
     );
     console.log(JSON.stringify(data.categories, null, 4));
     console.log("response status: ", status);
-    return data;
+    return data.categories;
   } catch (error) {
     return ErrorHandler(error);
   }

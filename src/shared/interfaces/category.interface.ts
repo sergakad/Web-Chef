@@ -1,8 +1,8 @@
 export interface ICategory {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
+  idCategory: number;
+  strCategory: string;
+  strCategoryThumb: string;
+  strCategoryDescription: string;
 }
 
 export interface ICategories {

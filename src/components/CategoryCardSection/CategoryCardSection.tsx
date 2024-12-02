@@ -12,10 +12,11 @@ const CategoryCardSection: FC = () => {
       {categories.map((category) => {
         return (
           <CategoryCard
-            key={category.id}
-            name={category.name}
-            description={category.description}
-            image={category.image}
+            key={category.idCategory}
+            id={category.idCategory}
+            name={category.strCategory}
+            description={category.strCategoryDescription}
+            image={category.strCategoryThumb}
           />
         );
       })}
