@@ -8,6 +8,7 @@ import "@/shared/styles/reset.scss";
 import "@/shared/styles/variables.scss";
 import "@/shared/styles/globals.scss";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import cn from "classnames";
 
 const moncerat = Montserrat({
@@ -49,7 +50,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        <footer>Footer</footer>
+        <Footer/>
       </body>
     </html>
   );

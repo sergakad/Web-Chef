@@ -13,21 +13,6 @@
   color: inherit;
 }
 
-.logoWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-  // border: 2px solid var(--main);
-  // background-color: var(--main-light);
-  border-radius: 20px;
-  padding: 10px;
-}
-
-.logo {
-  font-size: 20px;
-}
-
 .like {
   border: 2px solid var(--main);
   border-radius: 20px;
