@@ -4,20 +4,18 @@ import Link from "next/link";
 import s from "./Category.module.scss";
 
 interface ICategoryCard {
-  id?: number;
   name?: string;
   description?: string;
   image?: string;
 }
 
 const CategoryCard: FC<ICategoryCard> = ({
-  id,
   name,
   description,
   image,
 }) => {
   return (
-    <Link className={s.link} href={`/categories/${id}`}>
+    <Link className={s.link} href={`/categories/${name}`}>
       <div className={s.card}>
         <div className={s.content}>
           <div className={s.nameWrapper}>

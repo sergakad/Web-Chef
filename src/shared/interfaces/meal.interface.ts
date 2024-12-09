@@ -5,6 +5,14 @@ export interface IMeal {
   strArea: string;
   strMealThumb: string;
   strInstructions?: string;
+  strIngredient?: [];
+  strMeasure?: [];
+  strYoutube?: string;
+}
+
+export interface IMealRecept {
+  MealRecept: IMeal;
+  setMealRecept: (val:IMeal)=>void;
 }
 
 export interface IMeals {

@@ -12,14 +12,18 @@
   text-decoration: none;
   color: inherit;
 }
-
+.likeWrapper {
+  width: 155px;
+}
 .like {
   border: 2px solid var(--main);
   border-radius: 20px;
   height: 80px;
+  width: 73px;
   display: flex;
   align-items: center;
   gap: 20px;
   background-color: var(--main-light);
   padding: 0 20px;
+  float: right;
 }

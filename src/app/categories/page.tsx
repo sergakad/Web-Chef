@@ -28,6 +28,7 @@ export default function Categories() {
 
   return (
     <main className={s.main}>
+      <h2 className={s.title}>Categories</h2>
       {isLoading ? (
         <div>Loading...</div>
       ) : (

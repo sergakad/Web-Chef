@@ -1,9 +1,9 @@
-import css from "./page.module.scss";
+import s from "./page.module.scss";
 
 export default function Contacts() {
   return (
     <div>
-      <main className={css.main}>Contacts</main>
+      <h2 className={s.title}>Contacts</h2>
     </div>
   );
 }

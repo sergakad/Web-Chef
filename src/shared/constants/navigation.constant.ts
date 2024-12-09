@@ -1,4 +1,5 @@
 export const navigationValue = [
+  {key: 'home', name:'Home', href:'/'},
   {
     key: "categories",
     name: "Categories",

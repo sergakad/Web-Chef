@@ -12,8 +12,10 @@ const Header: FC = () => {
       <Logo/>
       <Navigation value={navigationValue} />
       <Link className={s.link} href="/">
-        <div className={s.like}>
-          <LikeIcon />
+        <div className={s.likeWrapper}>
+          <div className={s.like}>
+            <LikeIcon />
+          </div>
         </div>
       </Link>
     </div>

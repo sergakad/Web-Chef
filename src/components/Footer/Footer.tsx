@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/image"
 import { Logo } from "@/components/UI/Logo";
 import s from "./Footer.module.scss";
 
@@ -14,26 +14,23 @@ const Footer: FC = () => {
           <div className={s.mainSection}>
             <div className={s.linksWrapper}>
               <div className={s.referenceWrapper}>
-                <div className={s.title}>Справка</div>
+                <div className={s.title}>Reference</div>
                 <Link className={s.link} href="/">
-                  Пользовательское соглашение
+                  User Agreement
                 </Link>
                 <Link className={s.link} href="/">
-                  Часто задаваемые вопросы
-                </Link>
-                <Link className={s.link} href="/">
-                  Как работает создание ивента
+                  Frequently asked questions
                 </Link>
               </div>
               <div className={s.partnersWrapper}>
                 <div className={s.title}>
-                  Партнерам и организаторам
+                  To partners and organizers
                 </div>
                 <Link className={s.link} href="/">
-                  Корпоративным клиентам
+                  For corporate clients
                 </Link>
                 <Link className={s.link} href="/">
-                  Подписка
+                  Subscription
                 </Link>
               </div>
             </div>
@@ -48,17 +45,17 @@ const Footer: FC = () => {
                 });
               }}
             >
-            <Logo/>
+              <Logo />
             </button>
             <div className={s.communicationWrapper}>
               <Link className={s.link} href="/">
-                Обратная связь
+                Feedback
               </Link>
               <Link className={s.link} href="/">
-                Контакты
+                Contacts
               </Link>
               <Link className={s.link} href="/">
-                Редакция
+                Editorial
               </Link>
             </div>
             <div className={s.socialNetworkWrapper}>
@@ -94,7 +91,7 @@ const Footer: FC = () => {
         </div>
         <div>
           <span className={s.copyright}>
-            © 2024 ООО «Веб-Шеф»
+            © 2024 «Web-chef»
           </span>
         </div>
       </div>

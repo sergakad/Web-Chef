@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { CategoryCardSection } from "@/components/CategoryCardSection";
 import { RandomMealCarouselSection } from "@/components/RandomMealCarouselSection";
 import { useCategoriesStore } from "@/shared/stores/categories-store";
-import { useMealsStore } from "@/shared/stores/meals-store";
+import { useRandomMealsStore } from "@/shared/stores/random-meals-store";
 import { GetCategories } from "@/api/CategoryHttp";
 import { GetRandomMeal } from "@/api/RandomMealHttp";
 import s from "./page.module.scss";
@@ -19,13 +19,13 @@ export default function Home() {
   const setCategories = useCategoriesStore(
     (state) => state.setCategories,
   );
-  const isLoadingMeals = useMealsStore(
+  const isLoadingMeals = useRandomMealsStore(
     (state) => state.isLoading,
   );
-  const setLoadingMeals = useMealsStore(
+  const setLoadingMeals = useRandomMealsStore(
     (state) => state.setLoading,
   );
-  const setMeals = useMealsStore((state) => state.setMeals);
+  const setMeals = useRandomMealsStore((state) => state.setMeals);
 
   useEffect(() => {
     (async () => {

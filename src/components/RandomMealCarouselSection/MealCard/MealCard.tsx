@@ -2,17 +2,17 @@ import { FC } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/UI/Badge";
 import Image from "next/image";
-import s from "./RandomMealCard.module.scss";
+import s from "./MealCard.module.scss";
 
-interface IRandomMealProps {
-  id?: number;
+interface IMealProps {
+  id: number;
   name?: string;
   image?: string;
   category?: string;
   area?: string;
 }
 
-const RandomMealCard: FC<IRandomMealProps> = ({
+const MealCard: FC<IMealProps> = ({
   id,
   name,
   category,
@@ -43,4 +43,4 @@ const RandomMealCard: FC<IRandomMealProps> = ({
   );
 };
 
-export { RandomMealCard };
+export { MealCard };

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CategoryCard } from "@/components/CategoryCard";
+import { CategoryCard } from "@/components/CategoryCardSection/CategoryCard";
 import { useCategoriesStore } from "@/shared/stores/categories-store";
 import s from "./CategoryCardSection.module.scss";
 
@@ -13,7 +13,6 @@ const CategoryCardSection: FC = () => {
         return (
           <CategoryCard
             key={category.idCategory}
-            id={category.idCategory}
             name={category.strCategory}
             description={category.strCategoryDescription}
             image={category.strCategoryThumb}
