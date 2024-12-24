@@ -2,35 +2,26 @@
 
 import { GetMeal } from "@/api/MealHttp";
 import { useParams } from "next/navigation";
-import { Meal } from "@/components/Meal";
+import { MealRecipe } from "@/components/MealRecipe";
 import { useMealStore } from "@/shared/stores/meal-store";
 import { useEffect } from "react";
 
 export default function MealPage() {
   const { idMeal } = useParams();
-  const meal = useMealStore((state) => state.MealRecept);
-  const setMeal = useMealStore((state) => state.setMealRecept);
+  const setMeal = useMealStore((state) => state.setMeals);
   useEffect(() => {
     (async () => {
       const data = await GetMeal(idMeal);
-      if (Array.isArray(data)) {
+      if (typeof data === "object") {
         console.log(data);
-        setMeal(data)
+        setMeal(data);
       }
     })();
   }, []);
 
   return (
     <div>
-      <Meal
-        id={meal.idMeal}
-        name={meal.strMeal}
-        area={meal.strArea}
-        category={meal.strCategory}
-        image={meal.strMealThumb}
-        instructions={meal.strInstructions}
-        video={meal.strYoutube}
-      />
+      <MealRecipe />
     </div>
   );
 }

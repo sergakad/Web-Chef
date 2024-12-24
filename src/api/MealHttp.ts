@@ -1,10 +1,13 @@
-import { IMeals } from "@/shared/interfaces/meal.interface";
+import {
+  IMeals,
+  IMealRecipe,
+} from "@/shared/interfaces/meal.interface";
 import { ErrorHandler } from "./ErrorHandler";
 import { $api } from ".";
 
-const GetCategoryMeals = async (category:string): Promise<
-  IMeals | string
-> => {
+const GetCategoryMeals = async (
+  category: string,
+): Promise<IMeals | string> => {
   try {
     const { data, status } = await $api.get<IMeals>(
       `filter.php?c=${category}`,
@@ -22,17 +25,17 @@ const GetCategoryMeals = async (category:string): Promise<
 
 const GetMeal = async (
   id: number,
-): Promise<IMeals | string> => {
+): Promise<IMealRecipe | string> => {
   try {
-    const { data, status } = await $api.get<IMeals>(
+    const { data, status } = await $api.get<IMealRecipe>(
       `lookup.php?i=${id}`,
       {
         headers: { Accept: "application/json" },
       },
     );
-    console.log(JSON.stringify(data.meals, null, 4));
+    console.log(JSON.stringify(data.meals[0], null, 4));
     console.log("response status: ", status);
-    return data.meals;
+    return data.meals[0];
   } catch (error) {
     return ErrorHandler(error);
   }

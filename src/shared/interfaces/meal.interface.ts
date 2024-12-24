@@ -10,14 +10,14 @@ export interface IMeal {
   strYoutube?: string;
 }
 
-export interface IMealRecept {
-  MealRecept: IMeal;
-  setMealRecept: (val:IMeal)=>void;
-}
-
 export interface IMeals {
   meals: IMeal[];
   setMeals: (val: IMeal[]) => void;
   isLoading: boolean;
   setLoading: (val: boolean) => void;
+}
+
+export interface IMealRecipe {
+  meals: IMeal;
+  setMeals: (val: IMeal) => void;
 }
