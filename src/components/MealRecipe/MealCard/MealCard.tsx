@@ -1,13 +1,17 @@
 import { FC } from "react";
 import { Badge } from "@/components/UI/Badge";
 import Image from "next/image";
-import s from './MealCard.module.scss'
+import { Like } from "@/components/UI/Like";
+import { TLikeState } from "@/shared/types/like-state.types";
+import s from "./MealCard.module.scss";
 
 interface IMealProps {
   name: string;
   image: string;
   category: string;
   area: string;
+  likeHandler: ()=>void;
+  like: TLikeState;
 }
 
 const MealCard: FC<IMealProps> = ({
@@ -15,6 +19,8 @@ const MealCard: FC<IMealProps> = ({
   category,
   area,
   image,
+  likeHandler,
+  like
 }) => {
   return (
     <div className={s.card}>
@@ -34,6 +40,7 @@ const MealCard: FC<IMealProps> = ({
           <Badge>{category}</Badge>
           <Badge>{area}</Badge>
         </div>
+        <Like onClick={likeHandler} state={like}/>
       </div>
     </div>
   );

@@ -18,6 +18,9 @@ export default function Category() {
   const setLoadingMeals = useCategoryMealsStore(
     (state) => state.setLoading,
   );
+  const meals = useCategoryMealsStore(
+    (state) => state.meals,
+  );
 
   useEffect(() => {
     (async () => {
@@ -35,7 +38,7 @@ export default function Category() {
       {isLoadingMeals ? (
         <div>Loading...</div>
       ) : (
-        <MealsCardSection />
+        <MealsCardSection meals={meals}/>
       )}
     </div>
   );

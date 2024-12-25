@@ -22,23 +22,4 @@ export const useMealStore = create(
     },
   })),
 );
-// export const useMealStore = create(
-//   devtools<IMealRecipe>((set) => ({
-//     meals: {
-//       idMeal: 0,
-//       strMeal: "",
-//       strCategory: "",
-//       strArea: "",
-//       strMealThumb: "",
-//       strInstructions: "",
-//       strIngredient: [],
-//       strMeasure: [],
-//       strYoutube: "",
-//     },
-//     setMeals: (val) => {
-//       set({
-//         meals: val,
-//       });
-//     },
-//   })),
-// );
+

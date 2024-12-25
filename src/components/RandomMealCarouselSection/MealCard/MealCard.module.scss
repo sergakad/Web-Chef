@@ -2,6 +2,14 @@
     text-decoration: none;
   color: inherit;
 }
+
+.likeWrapper {
+  position: relative;
+  bottom: 790px;
+  left: 530px;
+  z-index: 1;
+}
+
 .imageWrapper {
   position: relative;
   width: auto;

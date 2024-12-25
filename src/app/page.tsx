@@ -7,6 +7,7 @@ import { useCategoriesStore } from "@/shared/stores/categories-store";
 import { useRandomMealsStore } from "@/shared/stores/random-meals-store";
 import { GetCategories } from "@/api/CategoryHttp";
 import { GetRandomMeal } from "@/api/RandomMealHttp";
+import { Like } from "@/components/UI/Like";
 import s from "./page.module.scss";
 
 export default function Home() {
@@ -62,6 +63,7 @@ export default function Home() {
       ) : (
         <CategoryCardSection />
       )}
+      <Like/>
     </main>
   );
 }

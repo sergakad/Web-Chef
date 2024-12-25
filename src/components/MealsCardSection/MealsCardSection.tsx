@@ -1,12 +1,16 @@
 import { FC } from "react";
-import { useCategoryMealsStore } from "@/shared/stores/category-meals-store";
+import { IMeal } from "@/shared/interfaces/meal.interface";
 import { MealCard } from "./MealCard";
 import s from "./MealsCardSection.module.scss";
 
-const MealsCardSection: FC = () => {
-  const meals = useCategoryMealsStore(
-    (state) => state.meals,
-  );
+interface IMealsCardSectionProps {
+  meals: IMeal[];
+}
+
+const MealsCardSection: FC<IMealsCardSectionProps> = ({
+  meals,
+}) => {
+
   return (
     <div className={s.cardSection}>
       {meals.map((meal) => {
