@@ -2,7 +2,6 @@
 
 import { MealsCardSection } from "@/components/MealsCardSection";
 import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
-
 import s from "./page.module.scss";
 
 export default function Like() {

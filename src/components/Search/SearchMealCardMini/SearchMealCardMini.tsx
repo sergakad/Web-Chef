@@ -1,22 +1,26 @@
 import { FC } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import s from "./MealCard.module.scss";
+import Link from "next/link";
+import s from "./SearchMealCardMini.module.scss";
 
-interface IMealCardProps {
+interface ISearchMealCardMiniProps {
   id: number;
   name?: string;
   image?: string;
+  onClick?: () => void;
 }
 
-const MealCard: FC<IMealCardProps> = ({ id, name, image }) => {
-
-
-
+const SearchMealCardMini: FC<ISearchMealCardMiniProps> = ({
+  id,
+  name,
+  image,
+  onClick,
+}) => {
   return (
     <Link
       className={s.link}
       href={`/${id}`}
+      onClick={onClick}
     >
       <div className={s.content}>
         <div className={s.imageWrapper}>
@@ -36,4 +40,4 @@ const MealCard: FC<IMealCardProps> = ({ id, name, image }) => {
   );
 };
 
-export { MealCard };
+export { SearchMealCardMini };

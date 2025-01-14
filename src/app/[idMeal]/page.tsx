@@ -22,21 +22,19 @@ export default function MealPage() {
   const deleteMeal = useLikeMealsStore(
     (state) => state.deleteMeal,
   );
+
   useEffect(() => {
     (async () => {
       const data = await GetMeal(idMeal);
       if (typeof data === "object") {
-        console.log(data);
         setMeal(data);
         const exist = likeMeals.some(
           (el) => el.idMeal === data.idMeal,
         );
         if (exist) {
           setLike("active");
-          console.log("active");
         } else {
           setLike("inactive");
-          console.log("inactive");
         }
       }
     })();
@@ -58,6 +56,14 @@ export default function MealPage() {
       ]);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem(
+      "likeMeals",
+      JSON.stringify(likeMeals),
+    );
+  }, [likeMeals]);
+
 
   return (
     <div>

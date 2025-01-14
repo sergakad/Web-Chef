@@ -1,5 +1,7 @@
 .footer {
   height: 436px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   background-color: var(--gray);
   display: flex;
   padding-top: 40px;
@@ -9,11 +11,10 @@
   line-height: 130%;
   font-family: var(--font-poppins), sans-serif;
   font-style: normal;
-  width: 1900px;
   position: relative;
-  right: 250px;
-  margin-top: auto;
+  margin-left: 0px;
 }
+
 .footerWrapper {
   display: flex;
   flex-direction: column;

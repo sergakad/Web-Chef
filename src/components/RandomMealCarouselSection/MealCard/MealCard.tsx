@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Badge } from "@/components/UI/Badge";
 import Image from "next/image";
 import { Like } from "@/components/UI/Like";
+import { TLikeState } from "@/shared/types/like-state.types";
 import s from "./MealCard.module.scss";
 
 interface IMealProps {
@@ -11,6 +12,8 @@ interface IMealProps {
   image?: string;
   category?: string;
   area?: string;
+  likeHandler: ()=>void;
+  like: TLikeState
 }
 
 const MealCard: FC<IMealProps> = ({
@@ -19,6 +22,8 @@ const MealCard: FC<IMealProps> = ({
   category,
   area,
   image,
+  likeHandler,
+  like,
 }) => {
   return (
     <Link className={s.link} href={`${id}`}>
@@ -42,7 +47,7 @@ const MealCard: FC<IMealProps> = ({
         </div>
       </div>
       <div className={s.likeWrapper}>
-        <Like />
+        <Like onClick={likeHandler} state={like}/>
       </div>
     </Link>
   );

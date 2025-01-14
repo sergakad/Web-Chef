@@ -11,6 +11,8 @@ const MealsCardSection: FC<IMealsCardSectionProps> = ({
   meals,
 }) => {
 
+
+
   return (
     <div className={s.cardSection}>
       {meals.map((meal) => {

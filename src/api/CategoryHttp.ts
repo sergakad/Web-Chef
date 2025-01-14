@@ -12,8 +12,8 @@ const GetCategories = async (): Promise<
         headers: { Accept: "application/json" },
       },
     );
-    console.log(JSON.stringify(data.categories, null, 4));
-    console.log("response status: ", status);
+    // console.log(JSON.stringify(data.categories, null, 4));
+    // console.log("response status: ", status);
     return data.categories;
   } catch (error) {
     return ErrorHandler(error);

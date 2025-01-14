@@ -4,8 +4,8 @@
 }
 .imageWrapper {
   position: relative;
-  width: auto;
-  height: 440px;
+  height: 100px;
+  min-width: 100px;
 }
 
 .image {
@@ -18,12 +18,11 @@
 }
 
 .content {
-  border: 2px solid var(--main);
   padding: 20px;
   border-radius: 20px;
   background-color: var(--main-light);
   display: flex;
-  flex-direction: column;
+  flex-direction: row ;
   gap: 20px;
 }
 

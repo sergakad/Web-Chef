@@ -32,13 +32,15 @@ export default function Category() {
     })();
   }, []);
 
+
+
   return (
     <div>
       <h2 className={s.title}>{nameCategory}</h2>
       {isLoadingMeals ? (
         <div>Loading...</div>
       ) : (
-        <MealsCardSection meals={meals}/>
+        <MealsCardSection meals={meals} />
       )}
     </div>
   );

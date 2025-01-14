@@ -12,8 +12,8 @@ const GetRandomMeal = async (): Promise<
         headers: { Accept: "application/json" },
       },
     );
-    console.log(JSON.stringify(data.meals, null, 4));
-    console.log("response status: ", status);
+    // console.log(JSON.stringify(data.meals, null, 4));
+    // console.log("response status: ", status);
     return data.meals;
   } catch (error) {
     return ErrorHandler(error);

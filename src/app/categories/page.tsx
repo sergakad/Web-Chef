@@ -16,6 +16,8 @@ export default function Categories() {
   const setCategories = useCategoriesStore(
     (state) => state.setCategories,
   );
+
+
   useEffect(() => {
     (async () => {
       const data = await GetCategories();
@@ -25,6 +27,7 @@ export default function Categories() {
       }
     })();
   }, []);
+
 
   return (
     <main className={s.main}>

@@ -11,21 +11,24 @@
   text-decoration: none;
   color: inherit;
 }
-.likeWrapper {
-  width: 155px;
+.contentWrapper {
+  display: flex;
+  gap: 10px;
 }
-.like {
+.content {
   border: 2px solid var(--main);
   border-radius: 20px;
   height: 80px;
-  width: 73px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  align-content: center;
   background-color: var(--main-light);
   padding: 0 20px;
-  float: right;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
+
+
 
 .countLike {
   background-color: var(--main);
@@ -35,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  left: 115px;
-  top: 40px;
+  position: absolute;
+  left: 30px;
+  top: 38px;
 }

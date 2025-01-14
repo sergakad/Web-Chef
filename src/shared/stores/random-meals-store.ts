@@ -6,10 +6,7 @@ export const useRandomMealsStore = create(
   devtools<IMeals>((set) => ({
     meals: [],
     setMeals: (val) => {
-      set((state) => ({
-        ...state,
-        meals: [...state.meals, ...val],
-      }));
+      set({ meals: val });
     },
     isLoading: true,
     setLoading: (val) => {

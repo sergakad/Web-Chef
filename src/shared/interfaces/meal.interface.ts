@@ -22,3 +22,10 @@ export interface IMealRecipe {
   meals: IMeal;
   setMeals: (val: IMeal) => void;
 }
+
+export interface ISearchMeals {
+  meals: IMeal[];
+  setMeals: (val: IMeal[]) => void;
+  searchMealsName: string;
+  setSearchMealsName: (val: string) => void;
+}

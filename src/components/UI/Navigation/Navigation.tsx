@@ -13,11 +13,15 @@ interface INavigationProps {
 }
 
 const Navigation: FC<INavigationProps> = ({ value }) => {
+
   return (
     <div className={s.navigation}>
       {value.map((val) => (
         <div key={val.key} className={s.linkWrapper}>
-          <Link className={s.link} href={val.href}>
+          <Link
+            className={s.link}
+            href={val.href}
+          >
             {val.name}
           </Link>
         </div>

@@ -4,7 +4,9 @@ import { IMeals } from "@/shared/interfaces/meal.interface";
 
 export const useLikeMealsStore = create(
   devtools<IMeals>((set) => ({
-    meals: [],
+    meals: JSON.parse(
+      localStorage.getItem("likeMeals") || "[]",
+    ),
     setMeals: (val) => {
       set((state) => ({
         ...state,

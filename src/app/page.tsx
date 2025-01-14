@@ -6,8 +6,6 @@ import { RandomMealCarouselSection } from "@/components/RandomMealCarouselSectio
 import { useCategoriesStore } from "@/shared/stores/categories-store";
 import { useRandomMealsStore } from "@/shared/stores/random-meals-store";
 import { GetCategories } from "@/api/CategoryHttp";
-import { GetRandomMeal } from "@/api/RandomMealHttp";
-import { Like } from "@/components/UI/Like";
 import s from "./page.module.scss";
 
 export default function Home() {
@@ -20,13 +18,15 @@ export default function Home() {
   const setCategories = useCategoriesStore(
     (state) => state.setCategories,
   );
-  const isLoadingMeals = useRandomMealsStore(
+  const isLoadingRandomMeals = useRandomMealsStore(
     (state) => state.isLoading,
   );
-  const setLoadingMeals = useRandomMealsStore(
+  const setLoadingRandomMeals = useRandomMealsStore(
     (state) => state.setLoading,
   );
-  const setMeals = useRandomMealsStore((state) => state.setMeals);
+  const randomMeals = useRandomMealsStore(
+    (state) => state.meals,
+  );
 
   useEffect(() => {
     (async () => {
@@ -36,21 +36,18 @@ export default function Home() {
         setLoadingCategories(false);
       }
     })();
-    for (let i = 0; i < 5; i += 1) {
-      (async () => {
-        const data = await GetRandomMeal();
-        if (Array.isArray(data)) {
-          setMeals(data);
-        }
-      })();
-    }
-    setLoadingMeals(false);
   }, []);
+
+  useEffect(() => {
+    setLoadingRandomMeals(false);  //это не работает !!!
+    console.log("я сработал", randomMeals);
+  }, [randomMeals]);
 
   return (
     <main className={s.main}>
       <h2 className={s.title}>Cook it right now</h2>
-      {isLoadingMeals ? (
+
+      {isLoadingRandomMeals ? (
         <div>Loading...</div>
       ) : (
         <div className={s.randomMealCarouselSection}>
@@ -63,7 +60,6 @@ export default function Home() {
       ) : (
         <CategoryCardSection />
       )}
-      <Like/>
     </main>
   );
 }
