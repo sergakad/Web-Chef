@@ -39,7 +39,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    setLoadingRandomMeals(false);  //это не работает !!!
+    setLoadingRandomMeals(false);  // это не работает !!!
     console.log("я сработал", randomMeals);
   }, [randomMeals]);
 

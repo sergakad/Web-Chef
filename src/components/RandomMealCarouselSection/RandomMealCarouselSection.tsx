@@ -20,9 +20,6 @@ const RandomMealCarouselSection: FC = () => {
   const setRandomMeals = useRandomMealsStore(
     (state) => state.setMeals,
   );
-  const setLoadingRandomMeals = useRandomMealsStore(
-    (state) => state.setLoading,
-  );
 
   const likeMeals = useLikeMealsStore(
     (state) => state.meals,
@@ -32,12 +29,16 @@ const RandomMealCarouselSection: FC = () => {
     setRandomMeals([]);
     (async () => {
       const random: IMeal[] = [];
-      for (let i = 0; i < 5; i += 1) {
-        const data = await GetRandomMeal();
-        if (Array.isArray(data)) {
-          random.push(...data);
-        }
-      }
+        const randomPromises = Array.from(
+          { length: 5 },
+          () => GetRandomMeal(),
+        );
+        const data = await Promise.all(randomPromises) 
+        data.forEach((el)=>{
+          if (Array.isArray(el)) {
+            random.push(...el);
+          }
+        })
       setRandomMeals(random);
     })();
 

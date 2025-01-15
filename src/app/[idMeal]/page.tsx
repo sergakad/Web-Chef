@@ -24,6 +24,7 @@ export default function MealPage() {
   );
 
   useEffect(() => {
+    // setMeal([]);
     (async () => {
       const data = await GetMeal(idMeal);
       if (typeof data === "object") {
