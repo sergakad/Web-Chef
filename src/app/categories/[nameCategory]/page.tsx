@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { GetCategoryMeals } from "@/api/MealHttp";
+import { Loader } from "@/components/UI/Loader";
+import { Back } from "@/components/UI/Back";
 import { useCategoryMealsStore } from "@/shared/stores/category-meals-store";
 import { MealsCardSection } from "@/components/MealsCardSection";
 import s from "./page.module.scss";
@@ -12,12 +14,8 @@ export default function Category() {
   const setMeals = useCategoryMealsStore(
     (state) => state.setMeals,
   );
-  const isLoadingMeals = useCategoryMealsStore(
-    (state) => state.isLoading,
-  );
-  const setLoadingMeals = useCategoryMealsStore(
-    (state) => state.setLoading,
-  );
+  const [isLoadingMeals, setLoadingMeals] =
+    useState<boolean>(true);
   const meals = useCategoryMealsStore(
     (state) => state.meals,
   );
@@ -32,16 +30,15 @@ export default function Category() {
     })();
   }, []);
 
-
-
   return (
-    <div>
+    <main>
+      <Back/>
       <h2 className={s.title}>{nameCategory}</h2>
       {isLoadingMeals ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <MealsCardSection meals={meals} />
       )}
-    </div>
+    </main>
   );
 }

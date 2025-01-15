@@ -8,6 +8,4 @@ export interface ICategory {
 export interface ICategories {
   categories: ICategory[];
   setCategories: (val: ICategory[]) => void;
-  isLoading: boolean;
-  setLoading: (val: boolean) => void;
 }

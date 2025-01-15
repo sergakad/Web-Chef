@@ -8,9 +8,5 @@ export const useCategoriesStore = create(
     setCategories: (val) => {
       set({ categories: val });
     },
-    isLoading: true,
-    setLoading: (val) => {
-      set({ isLoading: val });
-    },
   })),
 );

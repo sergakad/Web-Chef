@@ -1,4 +1,5 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
+import { Loader } from "@/components/UI/Loader";
 import { GetRandomMeal } from "@/api/RandomMealHttp";
 import { CarouselSection } from "@/components/UI/CarouselSection";
 import { useRandomMealsStore } from "@/shared/stores/random-meals-store";
@@ -24,22 +25,25 @@ const RandomMealCarouselSection: FC = () => {
   const likeMeals = useLikeMealsStore(
     (state) => state.meals,
   );
+  const [isLoadingRandomMeals, setLoadingRandomMeals] =
+    useState<boolean>(true);
 
   useEffect(() => {
+    setLoadingRandomMeals(true);
     setRandomMeals([]);
     (async () => {
       const random: IMeal[] = [];
-        const randomPromises = Array.from(
-          { length: 5 },
-          () => GetRandomMeal(),
-        );
-        const data = await Promise.all(randomPromises) 
-        data.forEach((el)=>{
-          if (Array.isArray(el)) {
-            random.push(...el);
-          }
-        })
+      const randomPromises = Array.from({ length: 5 }, () =>
+        GetRandomMeal(),
+      );
+      const data = await Promise.all(randomPromises);
+      data.forEach((el) => {
+        if (Array.isArray(el)) {
+          random.push(...el);
+        }
+      });
       setRandomMeals(random);
+      setLoadingRandomMeals(false);
     })();
 
     for (let i = 0; i < randomMeals.length; i += 1) {
@@ -65,25 +69,31 @@ const RandomMealCarouselSection: FC = () => {
 
   return (
     <div>
-      <CarouselSection desktopItemsPerView={3}>
-        {randomMeals.map((meal) => {
-          const likeState = like.find(
-            (el) => el.idMeal === meal.idMeal,
-          )?.like;
-          return (
-            <MealCard
-              key={meal.idMeal}
-              id={meal.idMeal}
-              name={meal.strMeal}
-              category={meal.strCategory}
-              area={meal.strArea}
-              image={meal.strMealThumb}
-              likeHandler={likeHandler}
-              like={likeState || "inactive"}
-            />
-          );
-        })}
-      </CarouselSection>
+      {isLoadingRandomMeals ? (
+        <Loader />
+      ) : (
+        <div>
+          <CarouselSection desktopItemsPerView={3}>
+            {randomMeals.map((meal) => {
+              const likeState = like.find(
+                (el) => el.idMeal === meal.idMeal,
+              )?.like;
+              return (
+                <MealCard
+                  key={meal.idMeal}
+                  id={meal.idMeal}
+                  name={meal.strMeal}
+                  category={meal.strCategory}
+                  area={meal.strArea}
+                  image={meal.strMealThumb}
+                  likeHandler={likeHandler}
+                  like={likeState || "inactive"}
+                />
+              );
+            })}
+          </CarouselSection>
+        </div>
+      )}
     </div>
   );
 };

@@ -14,8 +14,6 @@ export interface IMeals {
   meals: IMeal[];
   setMeals: (val: IMeal[]) => void;
   deleteMeal?: (idMeal: number) => void;
-  isLoading: boolean;
-  setLoading: (val: boolean) => void;
 }
 
 export interface IMealRecipe {

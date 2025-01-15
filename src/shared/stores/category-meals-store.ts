@@ -10,9 +10,5 @@ export const useCategoryMealsStore = create(
         meals: val,
       });
     },
-    isLoading: true,
-    setLoading: (val) => {
-      set({ isLoading: val });
-    },
   })),
 );

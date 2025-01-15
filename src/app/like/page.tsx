@@ -10,13 +10,13 @@ export default function Like() {
   );
 
   return (
-    <div>
+    <main>
       <h2 className={s.title}>Did you like it</h2>
       {likeMeals.length !== 0 ? (
         <MealsCardSection meals={likeMeals} />
       ) : (
         <div>There is nothing yet</div>
       )}
-    </div>
+    </main>
   );
 }

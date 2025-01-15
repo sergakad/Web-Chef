@@ -3,6 +3,8 @@
 import { GetMeal } from "@/api/MealHttp";
 import { useParams } from "next/navigation";
 import { MealRecipe } from "@/components/MealRecipe";
+import { Loader } from "@/components/UI/Loader";
+import { Back } from "@/components/UI/Back";
 import { useMealStore } from "@/shared/stores/meal-store";
 import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
 import { TLikeState } from "@/shared/types/like-state.types";
@@ -22,9 +24,11 @@ export default function MealPage() {
   const deleteMeal = useLikeMealsStore(
     (state) => state.deleteMeal,
   );
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // setMeal([]);
+    setLoading(true);
+    setMeal({ idMeal: 0, strMeal: "", strMealThumb: "" });
     (async () => {
       const data = await GetMeal(idMeal);
       if (typeof data === "object") {
@@ -37,6 +41,7 @@ export default function MealPage() {
         } else {
           setLike("inactive");
         }
+        setLoading(false);
       }
     })();
   }, []);
@@ -65,10 +70,14 @@ export default function MealPage() {
     );
   }, [likeMeals]);
 
-
   return (
-    <div>
-      <MealRecipe likeHandler={likeHandler} like={like} />
-    </div>
+    <main>
+      <Back/>
+      {isLoading ? (
+        <Loader/>
+      ) : (
+        <MealRecipe likeHandler={likeHandler} like={like} />
+      )}
+    </main>
   );
 }

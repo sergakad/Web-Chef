@@ -20,9 +20,5 @@ export const useLikeMealsStore = create(
         ),
       }));
     },
-    isLoading: true,
-    setLoading: (val) => {
-      set({ isLoading: val });
-    },
   })),
 );

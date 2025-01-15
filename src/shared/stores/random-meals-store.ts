@@ -8,9 +8,5 @@ export const useRandomMealsStore = create(
     setMeals: (val) => {
       set({ meals: val });
     },
-    isLoading: true,
-    setLoading: (val) => {
-      set({ isLoading: val });
-    },
   })),
 );
