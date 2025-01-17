@@ -28,7 +28,6 @@ export default function MealPage() {
 
   useEffect(() => {
     setLoading(true);
-    setMeal({ idMeal: 0, strMeal: "", strMealThumb: "" });
     (async () => {
       const data = await GetMeal(idMeal);
       if (typeof data === "object") {
