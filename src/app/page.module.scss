@@ -1,14 +1,36 @@
+.mainBackground {
+  background-image: url("/images/main-background.png");
+  height: 995px;
+  position: relative;
+  top:-133px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  position: absolute;
+  bottom: 178px;
+  left: 114px;
+  max-width: 721px;
+}
+
+.text {
+  color: var(--white);
+  font-size: 24px;
+}
+
 .title {
-    font-size: 50px;
-    width: fit-content;
-    border-bottom: 2px solid var(--main);
+  font-size: 50px;
+  width: fit-content;
+  border-bottom: 2px solid var(--main);
 }
 
 .randomMealCarouselSection {
-    width: 1900px;
-    margin-left: 0;
-    margin-right: 0;
-    position: relative;
-    right: 250px;
-    margin-bottom: 30px;
+  width: 1900px;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  right: 250px;
+  margin-bottom: 30px;
 }

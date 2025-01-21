@@ -1,31 +1,32 @@
-.content {
-  border: 2px solid var(--main);
-  border-radius: 20px;
-  height: 80px;
+.searchWrapper {
   align-content: center;
-  background-color: var(--main-light);
-  padding: 0 20px;
   position: relative;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
-}
-
-.search_active {
   display: flex;
-  gap: 10px;
-  min-width: 500px;
   align-items: center;
+  max-width: 543px;
+  gap: 10px;
+  background-color: var(--white);
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: 44px;
   z-index: 999;
 }
 
 .inputSearch {
-  background-color: white;
-  border-radius: 20px;
-  height: 40px;
+  height: 100%;
   width: 100%;
-  padding: 0 15px;
-  border: 2px solid var(--main);
+  padding-left: 16px;
+  border: none;
+  font-size: 20px;
+  z-index: 999;
+}
+
+.inputSearch::placeholder {
+  color: var(--black);
+  font-size: 20px;
 }
 
 .inputSearch:focus {
@@ -34,22 +35,20 @@
 
 .overlayPopup {
   background-color: black;
-  opacity: 10%;
+  opacity: 20%;
   height: 100vh;
   width: 100vw;
   position: fixed;
-  top: 0;
+  bottom: 0;
   right: 0;
   z-index: 998;
 }
 
 .contentPopup {
-  border: 2px solid var(--main);
-  border-radius: 20px;
+  border: 2px solid var(--black);
   position: absolute;
-  top: 135px;
   z-index: 999;
-  background-color: var(--main-light);
+  background-color: var(--white);
   padding: 0 20px;
-  width: 500px;
+  width: 543px;
 }

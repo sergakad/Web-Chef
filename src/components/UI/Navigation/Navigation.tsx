@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
+import { Logo } from "@/components/UI/Logo";
 import s from "./Navigation.module.scss";
 
 interface IValue {
@@ -13,15 +14,19 @@ interface INavigationProps {
 }
 
 const Navigation: FC<INavigationProps> = ({ value }) => {
-
   return (
     <div className={s.navigation}>
-      {value.map((val) => (
+      {value.slice(0, value.length / 2).map((val) => (
         <div key={val.key} className={s.linkWrapper}>
-          <Link
-            className={s.link}
-            href={val.href}
-          >
+          <Link className={s.link} href={val.href}>
+            {val.name}
+          </Link>
+        </div>
+      ))}
+      <Logo/>
+      {value.slice(value.length / 2 , value.length).map((val) => (
+        <div key={val.key} className={s.linkWrapper}>
+          <Link className={s.link} href={val.href}>
             {val.name}
           </Link>
         </div>
