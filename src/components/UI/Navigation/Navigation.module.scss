@@ -3,17 +3,55 @@
   display: flex;
   align-items: center;
   gap: 80px;
-  background-color: var(--main-light);
   padding: 0 135px;
   font-size: 24px;
   background: rgba(255, 255, 255, 0.76);
   backdrop-filter: blur(2px);
-
 }
+
 .link {
   text-decoration: none;
   color: inherit;
 }
-.linkWrapper:hover {
-  border-bottom: 2px solid var(--black);
+.linkWrapper {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    bottom: -3px;
+    background-color: var(--main);
+    transition-duration: 0.5s;
+    transition-property: width, left;
+    transition-timing-function: ease;
+  }
+
+  &:hover::before {
+    width: 100%;
+    left: 0%;
+  }
+}
+.logoWrapper {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    background-color: var(--main);
+    transition-duration: 0.5s;
+    transition-property: width, left;
+    transition-timing-function: ease;
+  }
+
+  &:hover::before {
+    width: 100%;
+    left: 0%;
+  }
 }

@@ -23,7 +23,7 @@ const Navigation: FC<INavigationProps> = ({ value }) => {
           </Link>
         </div>
       ))}
-      <Logo/>
+      <div className={s.logoWrapper}><Logo/></div>
       {value.slice(value.length / 2 , value.length).map((val) => (
         <div key={val.key} className={s.linkWrapper}>
           <Link className={s.link} href={val.href}>
