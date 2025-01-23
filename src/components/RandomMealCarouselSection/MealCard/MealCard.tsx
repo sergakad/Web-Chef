@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/UI/Badge";
+import { Difficulty } from "@/components/UI/Difficulty";
 import Image from "next/image";
 import { Like } from "@/components/UI/Like";
 import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
@@ -61,6 +62,9 @@ const MealCard: FC<IMealProps> = ({
 
   return (
     <div>
+      <div className={s.likeWrapper}>
+        <Like onClick={likeHandler} state={like} />
+      </div>
       <Link className={s.link} href={`${id}`}>
         <div className={s.imageWrapper}>
           <Image
@@ -72,19 +76,18 @@ const MealCard: FC<IMealProps> = ({
             priority
             draggable={false}
           />
-        </div>
-
-        <div className={s.content}>
-          <h3 className={s.name}>{name}</h3>
-          <div className={s.badgeWrapper}>
-            <Badge>{category}</Badge>
-            <Badge>{area}</Badge>
+          <div className={s.content}>
+            <h3 className={s.name}>{name}</h3>
+            <div className={s.information}>
+              <div className={s.badgeWrapper}>
+                <Badge>{category}</Badge>
+                <Badge>{area}</Badge>
+              </div>
+              <Difficulty difficultyLevel={3} />
+            </div>
           </div>
         </div>
       </Link>
-      <div className={s.likeWrapper}>
-        <Like onClick={likeHandler} state={like} />
-      </div>
     </div>
   );
 };

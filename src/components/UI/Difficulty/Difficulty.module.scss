@@ -1,0 +1,14 @@
+.iconsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  height: 44px;
+}
+
+.active {
+  fill: #ffbd07;
+}
+
+.inactive {
+  fill: #b6b6b6;
+}

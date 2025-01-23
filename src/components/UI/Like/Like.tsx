@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { LikeIcon } from "@/components/SvgIcons/LikeIcon";
-import cn from "classnames";
 import { TLikeState } from "@/shared/types/like-state.types";
 import s from "./Like.module.scss";
 
@@ -12,14 +11,12 @@ interface ILikeProps {
 
 const Like: FC<ILikeProps> = ({ onClick, state = 'inactive' }) => {
   return (
-    <button
-      className={cn(s.likeWrapper, s[`like_${state}`])}
+    <div
+      className={s.likeWrapper}
       onClick={onClick}
     >
-      <div className={s.like}>
-        <LikeIcon />
-      </div>
-    </button>
+        <LikeIcon className={s[`like_${state}`]} />
+    </div>
   );
 };
 

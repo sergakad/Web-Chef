@@ -1,15 +1,8 @@
 .badge {
   position: relative;
-  padding: 5px 15px;
-  border-radius: 20px;
-  line-height: 130%;
-  font-size: 12px;
-  display: flex;
-  flex-direction: row;
-  gap: 2px;
-  justify-content: center;
-  border: 1px var(--main) solid;
+  padding: 3px 12px;
+  border-radius: 30px;
+  font-size: 16px;
   background-color: var(--main-light);
   font-size: 20px;
-
 }
