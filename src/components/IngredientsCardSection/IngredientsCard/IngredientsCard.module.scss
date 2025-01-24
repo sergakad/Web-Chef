@@ -1,0 +1,54 @@
+.ingredientCard {
+  width: 398px;
+  height: 532px;
+  position: relative;
+  padding: 38px 16px;
+  color: var(--white);
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.meals {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 24px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.li {
+  &::before {
+    content: "•";
+    margin-right: 10px;
+  }
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.more {
+  font-size: 24px;
+  position: absolute;
+  right: 85px;
+  text-decoration: underline;
+}
+
+.imageWrapper {
+  height: 236px;
+  width: 252px;
+  position: absolute;
+  bottom: -85px;
+  left: 73px;
+}
+
+.image {
+  object-fit: contain;
+}

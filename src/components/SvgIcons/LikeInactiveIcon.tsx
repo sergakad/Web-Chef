@@ -1,7 +1,7 @@
 import { ISvgProps } from "@/shared/types/svg.type";
 import { FC } from "react";
 
-export const LikeIcon: FC<ISvgProps> = ({className}) => {
+export const LikeInactiveIcon: FC<ISvgProps> = ({className}) => {
   return (
     <svg
       width="22"

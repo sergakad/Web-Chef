@@ -5,6 +5,7 @@ import { CategoryCardSection } from "@/components/CategoryCardSection";
 import { Loader } from "@/components/UI/Loader";
 // import { Notification } from "@/components/UI/Notification";
 import { RandomMealCarouselSection } from "@/components/RandomMealCarouselSection";
+import { IngredientsCardSection } from "@/components/IngredientsCardSection";
 import { useCategoriesStore } from "@/shared/stores/categories-store";
 import { Search } from "@/components/Search";
 // import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
@@ -58,8 +59,8 @@ export default function Home() {
               liking. Whether you want to&nbsp;cook
               something simple for a&nbsp;casual dinner
               or&nbsp;surprise your guests with
-              a&nbsp;delicious dish, we&nbsp;have meals
-              for every occasion. Step&mdash;by-step
+              a&nbsp;delicious dish, we&nbsp;have meals for
+              every occasion. Step&mdash;by-step
               instructions, useful tips and a&nbsp;variety
               of&nbsp;ingredients&nbsp;&mdash; everything
               to&nbsp;make the cooking process fun and easy.
@@ -69,15 +70,21 @@ export default function Home() {
               create in&nbsp;the kitchen with pleasure!
             </span>
           </div>
-          <Search/>
+          <Search />
         </div>
       </div>
       {/* {isNotification && (
         <Notification message={noticeMessage} />
       )} */}
-      <h2 className={s.title}>Cook it right now</h2>
-      <div className={s.randomMealCarouselSection}>
-        <RandomMealCarouselSection />
+      <div className={s.section}>
+        <h2 className={s.title}>Cook it right now</h2>
+        <div className={s.randomMealCarousel}>
+          <RandomMealCarouselSection />
+        </div>
+      </div>
+      <div className={s.section}>
+        <h2 className={s.title}>Ingredients & Recipes</h2>
+        <IngredientsCardSection />
       </div>
       <h2 className={s.title}>Categories</h2>
       {isLoadingCategories ? (

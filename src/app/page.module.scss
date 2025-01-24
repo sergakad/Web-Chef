@@ -2,7 +2,7 @@
   background-image: url("/images/main-background.png");
   height: 995px;
   position: relative;
-  top:-133px;
+  top: -133px;
 }
 
 .mainContent {
@@ -21,15 +21,15 @@
 }
 
 .title {
-  font-size: 50px;
-  width: fit-content;
-  border-bottom: 2px solid var(--main);
+  font-size: 64px;
+  margin: auto;
 }
-
-.randomMealCarouselSection {
-  width: 1900px;
-  margin-left: 0;
-  margin-right: 0;
-  position: relative;
-  margin-bottom: 30px;
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.randomMealCarousel {
+  width: 1712px;
+  margin: auto;
 }

@@ -4,7 +4,9 @@ import { Badge } from "@/components/UI/Badge";
 import { Difficulty } from "@/components/UI/Difficulty";
 import Image from "next/image";
 import { Like } from "@/components/UI/Like";
+import { GetMeal } from "@/api/MealHttp";
 import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
+import { IMealRecipe } from "@/shared/interfaces/meal.interface";
 import { TLikeState } from "@/shared/types/like-state.types";
 import s from "./MealCard.module.scss";
 
@@ -33,6 +35,18 @@ const MealCard: FC<IMealProps> = ({
     (state) => state.deleteMeal,
   );
   const [like, setLike] = useState<TLikeState>("inactive");
+  const [difficultyLevel, setDifficultyLevel] =
+    useState<number>(0);
+
+  const difficultyLevelCalc = (data: IMealRecipe) => {
+    let count = 0;
+    let level = 0;
+    for (let i = 1; i <= 20; i += 1) {
+      if (data[`strIngredient${i}`] !== "") count += 1;
+    }
+    if (count > 0) level = Math.floor((count - 1) / 4) + 1;
+    return level;
+  };
 
   const likeHandler = () => {
     if (like === "active") {
@@ -58,6 +72,12 @@ const MealCard: FC<IMealProps> = ({
     } else {
       setLike("inactive");
     }
+    (async () => {
+      const data = await GetMeal(id);
+      if (typeof data === "object") {
+        setDifficultyLevel(difficultyLevelCalc(data));
+      }
+    })();
   }, []);
 
   return (
@@ -83,7 +103,9 @@ const MealCard: FC<IMealProps> = ({
                 <Badge>{category}</Badge>
                 <Badge>{area}</Badge>
               </div>
-              <Difficulty difficultyLevel={3} />
+              <Difficulty
+                difficultyLevel={difficultyLevel}
+              />
             </div>
           </div>
         </div>
