@@ -1,40 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { CategoryCardSection } from "@/components/CategoryCardSection";
-import { Loader } from "@/components/UI/Loader";
 // import { Notification } from "@/components/UI/Notification";
 import { RandomMealCarouselSection } from "@/components/RandomMealCarouselSection";
 import { IngredientsCardSection } from "@/components/IngredientsCardSection";
-import { useCategoriesStore } from "@/shared/stores/categories-store";
 import { Search } from "@/components/Search";
 // import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
-import { GetCategories } from "@/api/CategoryHttp";
 import s from "./page.module.scss";
 
 export default function Home() {
   // const [noticeMessage, setNoticeMessage] =
   //   useState<string>("");
-  const [isLoadingCategories, setLoadingCategories] =
-    useState<boolean>(true);
   // const [isNotification, setNotification] =
   //   useState<boolean>(false);
-  const setCategories = useCategoriesStore(
-    (state) => state.setCategories,
-  );
   // const likeMeals = useLikeMealsStore(
   //   (state) => state.meals,
   // );
-
-  useEffect(() => {
-    (async () => {
-      const data = await GetCategories();
-      if (Array.isArray(data)) {
-        setCategories(data);
-        setLoadingCategories(false);
-      }
-    })();
-  }, []);
 
   // useEffect(() => {
   //   setNotification(true);
@@ -87,11 +67,6 @@ export default function Home() {
         <IngredientsCardSection />
       </div>
       <h2 className={s.title}>Categories</h2>
-      {isLoadingCategories ? (
-        <Loader />
-      ) : (
-        <CategoryCardSection />
-      )}
     </main>
   );
 }

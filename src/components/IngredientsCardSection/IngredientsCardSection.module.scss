@@ -1,5 +1,7 @@
 .ingredientCardSection {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
-  gap: 40px;
+  justify-content: center;
+  grid-template-columns: repeat(4, 398px);
+  column-gap: 40px;
+  row-gap: 125px;
 }
