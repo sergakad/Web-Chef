@@ -1,6 +1,6 @@
 import { FC, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { SearchMeal } from "@/api/MealHttp";
+import { SearchMealsByName } from "@/api/MealHttp";
 import { SearchIcon } from "@/components/SvgIcons/SearchIcon";
 import { useSearchMealsStore } from "@/shared/stores/search-meals-store";
 import Link from "next/link";
@@ -32,7 +32,8 @@ const Search: FC = () => {
     setSearchMeals([]);
     if (searchMealsName) {
       (async () => {
-        const data = await SearchMeal(searchMealsName);
+        const data =
+          await SearchMealsByName(searchMealsName);
         if (Array.isArray(data)) {
           setSearchMeals(data);
         }

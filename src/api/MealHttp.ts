@@ -42,12 +42,12 @@ const GetMeal = async (
   }
 };
 
-const SearchMeal = async (
-  name: string,
+const SearchMealsByName = async (
+  mealName: string,
 ): Promise<ISearchMeals | string> => {
   try {
     const { data } = await $api.get<ISearchMeals>(
-      `search.php?s=${name}`,
+      `search.php?s=${mealName}`,
       {
         headers: { Accept: "application/json" },
       },
@@ -60,4 +60,27 @@ const SearchMeal = async (
   }
 };
 
-export { GetCategoryMeals, GetMeal, SearchMeal };
+const SearchMealsByIngredient = async (
+  ingredientName: string,
+): Promise<ISearchMeals | string> => {
+  try {
+    const { data } = await $api.get<ISearchMeals>(
+      `filter.php?i=${ingredientName}`,
+      {
+        headers: { Accept: "application/json" },
+      },
+    );
+    // console.log(JSON.stringify(data, null, 4));
+    // console.log("response status: ", status);
+    return data.meals;
+  } catch (error) {
+    return ErrorHandler(error);
+  }
+};
+
+export {
+  GetCategoryMeals,
+  GetMeal,
+  SearchMealsByName,
+  SearchMealsByIngredient,
+};

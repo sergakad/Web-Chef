@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { IMeal } from "@/shared/interfaces/meal.interface";
+import { SearchMealsByIngredient } from "@/api/MealHttp";
 import Link from "next/link";
 import Image from "next/image";
 import cn from "classnames";
@@ -14,10 +15,28 @@ interface IIngredientsCardProps {
 }
 const IngredientsCard: FC<IIngredientsCardProps> = ({
   id,
-  name = "Chicken",
+  name,
   backgroundImage = "http://localhost:3000/_next/image?url=https%3A%2F%2Fwww.themealdb.com%2Fimages%2Fmedia%2Fmeals%2F1550440197.jpg&w=1920&q=75",
-  ingredientImage = "https://www.themealdb.com/images/ingredients/Lime.png",
+  ingredientImage,
 }) => {
+  useEffect(() => {
+    (async () => {
+      const selectionMeals: IMeal[] = [];
+      const data = await SearchMealsByIngredient(
+        name || "",
+      );
+      if (Array.isArray(data)) {
+        for (let i = 0; i < 8; i += 1) {
+          selectionMeals.push(
+            data[Math.floor(Math.random() * data.length)],
+          );
+        }
+      }
+      // setIngredients(selectionIngredients);
+      console.log(selectionMeals.length);
+    })();
+  }, [name]);
+
   return (
     <div
       className={s.ingredientCard}
@@ -59,7 +78,10 @@ const IngredientsCard: FC<IIngredientsCardProps> = ({
       <div className={s.imageWrapper}>
         <Image
           className={s.image}
-          src={ingredientImage || ""}
+          src={
+            `https://www.themealdb.com/images/ingredients/${ingredientImage}.png` ||
+            ""
+          }
           alt="Title"
           sizes="100wv"
           fill
