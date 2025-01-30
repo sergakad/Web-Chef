@@ -18,7 +18,7 @@ const CarouselSection: FC<ICarouselSection> = ({
   desktopItemsPerView = 3,
   tabletItemsPerView = 2,
   desktopPartialVisible = 0,
-  tabletPartialVisible = 300,
+  tabletPartialVisible = 0,
   autoplay = true,
   draggable = false,
   ...props

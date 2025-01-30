@@ -1,28 +1,12 @@
 "use client";
 
-// import { Notification } from "@/components/UI/Notification";
 import { RandomMealCarouselSection } from "@/components/RandomMealCarouselSection";
 import { IngredientsCardSection } from "@/components/IngredientsCardSection";
 import { Search } from "@/components/Search";
-// import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
+import { AdviceCardSection } from "@/components/AdviceCardSection";
 import s from "./page.module.scss";
 
 export default function Home() {
-  // const [noticeMessage, setNoticeMessage] =
-  //   useState<string>("");
-  // const [isNotification, setNotification] =
-  //   useState<boolean>(false);
-  // const likeMeals = useLikeMealsStore(
-  //   (state) => state.meals,
-  // );
-
-  // useEffect(() => {
-  //   setNotification(true);
-  //   setNoticeMessage("like");
-  //   setTimeout(() => {
-  //     setNotification(false);
-  //   }, 3000);
-  // }, [likeMeals]);
 
   return (
     <main className={s.main}>
@@ -53,15 +37,13 @@ export default function Home() {
           <Search />
         </div>
       </div>
-      {/* {isNotification && (
-        <Notification message={noticeMessage} />
-      )} */}
       <div className={s.section}>
         <h2 className={s.title}>Cook it right now</h2>
         <div className={s.randomMealCarousel}>
           <RandomMealCarouselSection />
         </div>
       </div>
+      <AdviceCardSection />
       <div className={s.section}>
         <h2 className={s.title}>Ingredients & Recipes</h2>
         <IngredientsCardSection />
