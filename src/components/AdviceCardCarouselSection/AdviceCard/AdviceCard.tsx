@@ -1,15 +1,14 @@
 import { FC } from "react";
 import Link from "next/link";
+import { Button } from "@/components/UI/Button/Button";
 import s from "./AdviceCard.module.scss";
 
 interface IAdviceCardProps {
-  id?: number;
   title?: string;
   href?: string;
   backgroundImage?: string;
 }
 const AdviceCard: FC<IAdviceCardProps> = ({
-  id,
   title,
   href,
   backgroundImage,
@@ -19,11 +18,11 @@ const AdviceCard: FC<IAdviceCardProps> = ({
       className={s.adviceCard}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <h3>Useful advices:</h3>
-      <h4>{title}</h4>
-      <Link className={s.link} href={`${href}`}>
-        Read more
-      </Link>
+      <div className={s.content}>
+        <h3>Useful advices:</h3>
+        <h4 className={s.adviceText}>{title}</h4>
+        <Button variant="link" href={href}>Read more</Button>
+      </div>
     </div>
   );
 };

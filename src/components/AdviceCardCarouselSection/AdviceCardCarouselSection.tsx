@@ -4,7 +4,7 @@ import { CarouselSection } from "@/components/UI/CarouselSection/";
 import { IAdvice } from "@/shared/interfaces/advice.interface";
 import { AdviceCard } from "./AdviceCard";
 
-const AdviceCardSection: FC = () => {
+const AdviceCardCarouselSection: FC = () => {
   const [advices, setAdvices] = useState<IAdvice[]>([]);
   const [isLoadingAdvices, setLoadingAdvices] =
     useState<boolean>(true);
@@ -23,11 +23,16 @@ const AdviceCardSection: FC = () => {
       {isLoadingAdvices ? (
         <Loader />
       ) : (
-        <CarouselSection desktopItemsPerView={1} tabletItemsPerView={1} autoplay={false} >
-          {advices.map((advice) => (  
+        <CarouselSection
+          desktopItemsPerView={1}
+          tabletItemsPerView={1}
+          autoplay={false}
+          showDots
+          showArrows={false}
+        >
+          {advices.map((advice) => (
             <AdviceCard
               key={advice.id}
-              id={advice.id}
               title={advice.title}
               href={advice.href}
               backgroundImage={advice.backgroundImage}
@@ -39,4 +44,4 @@ const AdviceCardSection: FC = () => {
   );
 };
 
-export { AdviceCardSection };
+export { AdviceCardCarouselSection };

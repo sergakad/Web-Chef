@@ -1,3 +1,7 @@
+.home {
+    gap: 162px;
+}
+
 .mainBackground {
   background-image: url("/images/main-background.png");
   height: 995px;
@@ -8,11 +12,11 @@
 .mainContent {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 62px;
   position: absolute;
-  bottom: 178px;
+  top: 243px;
   left: 114px;
-  max-width: 721px;
+  max-width: 642px;
 }
 
 .text {

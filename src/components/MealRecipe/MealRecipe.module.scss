@@ -1,15 +1,134 @@
-.title {
-  font-size: 50px;
-  margin-bottom: 20px;
-  display: inline-block;
-  border-bottom: 2px solid var(--main);
+.recipeCard {
+  display: flex;
+  flex-direction: row;
+  gap: 146px;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(600px, 1fr)
-  );
+.recipeSection {
+  position: relative;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 876px;
+  height: 595px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.likeWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  right: 16px;
+}
+
+.recipe {
+  padding-top: 62px;
+  padding-left: 44px;
+  padding-right: 44px;
+  width: 880px;
+  min-height: 800px;
+  background-color: var(--gray);
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.ingredientsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 624px;
+  min-height: 1710px;
+  background-color: var(--main);
+  padding-top: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-top-right-radius: 60px;
+  border-top-left-radius: 60px;
+  font-size: 24px;
+}
+
+.title {
+  font-size: 60px;
+  position: relative;
+  left: -140px;
+}
+
+.mealInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.mealInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.badgeWrapper {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+}
+
+.difficultyWrapper {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.ingredientsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.ingredientsWeight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0; /* Убирает отступ слева */
+  margin: 0; /* Убирает внешний отступ */
+}
+
+.ingredients {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.ingredient {
+  max-width: 400px;
+}
+
+.line {
+  border-bottom: 1px solid var(--gray3);
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.weight {
+  width: auto;
 }

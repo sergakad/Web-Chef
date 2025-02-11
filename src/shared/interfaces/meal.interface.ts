@@ -4,9 +4,10 @@ export interface IMeal {
   strCategory?: string;
   strArea?: string;
   strMealThumb: string;
+  strTags?: string | null; 
   strInstructions?: string;
-  strIngredient?: [];
-  strMeasure?: [];
+  strIngredient?: string[];
+  strMeasure?: string[];
   strYoutube?: string;
 }
 
@@ -17,8 +18,8 @@ export interface IMeals {
 }
 
 export interface IMealRecipe {
-  meals: IMeal;
-  setMeals: (val: IMeal) => void;
+  meal: IMeal;
+  setMeal: (val: IMeal) => void;
 }
 
 export interface ISearchMeals {

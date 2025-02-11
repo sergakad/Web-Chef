@@ -1,0 +1,29 @@
+.adviceCard {
+  width: 1920px;
+  height: 464px;
+}
+
+.content {
+  margin-top: 130px;
+  margin-left: 106px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  color: var(--white);
+  font-size: 32px;
+}
+
+.link {
+  padding: 14px 24px;
+  background-color: var(--main);
+  border-radius: 60px;
+  display: block;
+  box-sizing: content-box;
+  text-decoration: none;
+  color:var(--black);
+  width: fit-content;
+}
+
+.adviceText {
+  font-weight: 100;
+}

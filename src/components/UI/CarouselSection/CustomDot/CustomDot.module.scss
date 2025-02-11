@@ -1,0 +1,15 @@
+.customDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border: none;
+  margin: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--gray2);
+}
+.customDotActive {
+  transform: scale(1.3);
+  background-color: var(--main);
+}

@@ -1,34 +1,87 @@
 import { FC } from "react";
+import Image from "next/image";
 import { TLikeState } from "@/shared/types/like-state.types";
 import { useMealStore } from "@/shared/stores/meal-store";
-import { MealCard } from "./MealCard";
+import { Difficulty, Badge, Like } from "@/components/UI";
+
 import s from "./MealRecipe.module.scss";
 
 interface IMealRecipeProps {
   likeHandler: () => void;
   like: TLikeState;
+  difficultyLevel: number;
 }
 
 const MealRecipe: FC<IMealRecipeProps> = ({
   likeHandler,
-  like
+  like,
+  difficultyLevel,
 }) => {
-  const meal = useMealStore((state) => state.meals);
+  const meal = useMealStore((state) => state.meal);
   return (
-    <div>
-      <h2 className={s.title}>{meal.strMeal}</h2>
-      <div className={s.content}>
-        <MealCard
-          area={meal.strArea || ""}
-          category={meal.strCategory || ""}
-          image={meal.strMealThumb}
-          name={meal.strMeal}
-          likeHandler={likeHandler}
-          like={like}
-        />
-        <div>
-          <h3>Recipe</h3>
+    <div className={s.recipeCard}>
+      <div className={s.recipeSection}>
+        <div className={s.imageWrapper}>
+          <div className={s.likeWrapper}>
+            <Like state={like} onClick={likeHandler} />
+          </div>
+          <Image
+            className={s.image}
+            src={meal.strMealThumb || "/"}
+            alt={meal.strMeal || "Meal"}
+            sizes="100wv"
+            fill
+            priority
+            draggable={false}
+          />
+        </div>
+        <div className={s.recipe}>
+          <h3>Recipe:</h3>
           <span>{meal.strInstructions}</span>
+        </div>
+      </div>
+      <div className={s.ingredientsSection}>
+        <h2 className={s.title}>{meal.strMeal}</h2>
+        <div className={s.mealInfoWrapper}>
+          <div className={s.mealInfo}>
+            <div className={s.badgeWrapper}>
+              <Badge>{meal.strCategory}</Badge>
+              <Badge>{meal.strArea}</Badge>
+              {meal.strTags
+                ?.split(",")
+                .map((tag) => (
+                  <Badge key={tag}>{tag}</Badge>
+                ))}
+            </div>
+            <div className={s.difficultyWrapper}>
+              <span>Difficulty:</span>
+              <Difficulty
+                difficultyLevel={difficultyLevel}
+              />
+            </div>
+          </div>
+          <div className={s.ingredientsWrapper}>
+            <h3>Ingredients:</h3>
+            <div className={s.ingredientsWeight}>
+              <ul className={s.ingredients}>
+                {meal.strIngredient?.map(
+                  (ingredient, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <li key={index} className={s.li}>
+                      <div className={s.ingredient}>
+                        {ingredient}
+                      </div>
+                      <div className={s.line} />
+                      <div className={s.weight}>
+                        {meal.strMeasure &&
+                          meal.strMeasure[index]}
+                      </div>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

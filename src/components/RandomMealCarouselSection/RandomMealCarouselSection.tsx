@@ -42,7 +42,7 @@ const RandomMealCarouselSection: FC = () => {
         <Loader />
       ) : (
         <div>
-          <CarouselSection desktopItemsPerView={3}>
+          <CarouselSection desktopItemsPerView={3} tabletItemsPerView={3}>
             {randomMeals.map((meal) => {
               return (
                 <MealCard

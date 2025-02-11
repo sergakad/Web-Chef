@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { GetCategoryMeals } from "@/api/MealHttp";
 import { Loader } from "@/components/UI/Loader";
-import { Back } from "@/components/UI/Back";
+import { Button } from "@/components/UI/Button/Button";
 import { useCategoryMealsStore } from "@/shared/stores/category-meals-store";
 import { MealsCardSection } from "@/components/MealsCardSection";
 import s from "./page.module.scss";
@@ -32,7 +32,7 @@ export default function Category() {
 
   return (
     <main>
-      <Back/>
+      <Button variant="back"/>
       <h2 className={s.title}>{nameCategory}</h2>
       {isLoadingMeals ? (
         <Loader />

@@ -6,8 +6,8 @@
   padding: 0 135px;
   font-size: 24px;
   border-radius: 0px 0px 60px 60px;
-background: rgba(242, 255, 196, 0.86);
-backdrop-filter: blur(2px);
+  background: rgba(242, 255, 196, 0.86);
+  backdrop-filter: blur(2px);
 }
 
 .link {
@@ -22,10 +22,10 @@ backdrop-filter: blur(2px);
     position: absolute;
     left: 50%;
     width: 0;
-    height: 3px;
+    height: 2px;
     bottom: -3px;
-    background-color: var(--main);
-    transition-duration: 0.5s;
+    background-color: var(--black);
+    transition-duration: 0.3s;
     transition-property: width, left;
     transition-timing-function: ease;
   }
@@ -43,10 +43,10 @@ backdrop-filter: blur(2px);
     position: absolute;
     left: 50%;
     width: 0;
-    height: 3px;
+    height: 2px;
     bottom: 0;
-    background-color: var(--main);
-    transition-duration: 0.5s;
+    background-color: var(--black);
+    transition-duration: 0.3s;
     transition-property: width, left;
     transition-timing-function: ease;
   }
@@ -54,5 +54,16 @@ backdrop-filter: blur(2px);
   &:hover::before {
     width: 100%;
     left: 0%;
+  }
+}
+
+.like {
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(2);
+    transition: all 0.5s;
   }
 }

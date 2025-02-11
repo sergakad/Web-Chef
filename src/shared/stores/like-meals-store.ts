@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { IMeals } from "@/shared/interfaces/meal.interface";
 
-export const useLikeMealsStore = create(
+export const useLikeMealsStore = create<IMeals>()(
   devtools<IMeals>((set) => ({
     meals: JSON.parse(
       localStorage.getItem("likeMeals") || "[]",

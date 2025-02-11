@@ -48,7 +48,7 @@ const Search: FC = () => {
           className={s.inputSearch}
           id="inputSearch"
           type="text"
-          placeholder="Search for..."
+          placeholder="Search for your meal..."
           ref={searchInputRef}
           value={searchMealsName}
           onChange={(event) => {
@@ -61,7 +61,7 @@ const Search: FC = () => {
         <>
           <div className={s.contentPopup}>
             {searchMeals.length > 0 ? (
-              searchMeals.slice(0, 5).map((meal) => {
+              searchMeals.slice(0, 3).map((meal) => {
                 return (
                   <SearchMealCardMini
                     key={meal.idMeal}

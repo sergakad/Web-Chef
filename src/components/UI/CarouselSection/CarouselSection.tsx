@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import Carousel from "react-multi-carousel";
+import { CustomDot } from "./CustomDot";
 import "react-multi-carousel/lib/styles.css";
 import s from "./CarouselSection.module.scss";
 
@@ -11,16 +12,20 @@ export interface ICarouselSection {
   children?: ReactNode;
   autoplay?: boolean;
   draggable?: boolean;
+  showDots?: boolean;
+  showArrows?: boolean;
 }
 
 const CarouselSection: FC<ICarouselSection> = ({
   children,
   desktopItemsPerView = 3,
-  tabletItemsPerView = 2,
+  tabletItemsPerView = 3,
   desktopPartialVisible = 0,
   tabletPartialVisible = 0,
   autoplay = true,
   draggable = false,
+  showDots = false,
+  showArrows = true,
   ...props
 }) => {
   const responsive = {
@@ -38,13 +43,15 @@ const CarouselSection: FC<ICarouselSection> = ({
 
   return (
     <Carousel
+      showDots={showDots}
       itemClass={s.carouselItem}
       responsive={responsive}
       partialVisible
       draggable={draggable}
       autoPlay={autoplay}
-      arrows
+      arrows={showArrows}
       infinite
+      customDot={<CustomDot onClick={() => {}} />}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >

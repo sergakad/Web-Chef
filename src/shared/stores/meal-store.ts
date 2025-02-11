@@ -1,10 +1,13 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { IMealRecipe } from "@/shared/interfaces/meal.interface";
+import {
+  IMeal,
+  IMealRecipe,
+} from "@/shared/interfaces/meal.interface";
 
-export const useMealStore = create(
-  devtools<IMealRecipe>((set) => ({
-    meals: {
+export const useMealStore = create<IMealRecipe>()(
+  devtools((set) => ({
+    meal: {
       idMeal: 0,
       strMeal: "",
       strCategory: "",
@@ -14,12 +17,33 @@ export const useMealStore = create(
       strIngredient: [],
       strMeasure: [],
       strYoutube: "",
+      strTags: "",
     },
-    setMeals: (val) => {
+    setMeal: (val) => {
       set({
-        meals: val,
+        meal: {
+          idMeal: val.idMeal,
+          strMeal: val.strMeal,
+          strCategory: val.strCategory,
+          strArea: val.strArea,
+          strMealThumb: val.strMealThumb,
+          strInstructions: val.strInstructions,
+          strYoutube: val.strYoutube,
+          strTags: val.strTags,
+          strIngredient: Array.from(
+            { length: 20 },
+            (_, i) =>
+              val[`strIngredient${i + 1}` as keyof IMeal] ??
+              "",
+          ).filter(Boolean),
+          strMeasure: Array.from(
+            { length: 20 },
+            (_, i) =>
+              val[`strMeasure${i + 1}` as keyof IMeal] ??
+              "",
+          ).filter(Boolean),
+        },
       });
     },
   })),
 );
-
