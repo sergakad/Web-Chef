@@ -35,7 +35,6 @@ export default function MealPage() {
     (async () => {
       const data = await GetMeal(idMeal);
       if (typeof data === "object") {
-        console.log(data);
         setMeal(data);
         setDifficultyLevel(difficultyLevelCalc(data));
         const exist = likeMeals.some(

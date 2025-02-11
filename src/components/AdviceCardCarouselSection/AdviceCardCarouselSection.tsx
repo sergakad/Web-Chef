@@ -29,6 +29,7 @@ const AdviceCardCarouselSection: FC = () => {
           autoplay={false}
           showDots
           showArrows={false}
+          draggable
         >
           {advices.map((advice) => (
             <AdviceCard

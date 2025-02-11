@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import { FC } from "react";
+import { usePathname } from "next/navigation";
+import { FC, useEffect, useState } from "react";
 import { Logo } from "@/components/UI/Logo";
 import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
 import { LikeActiveIcon } from "@/components/SvgIcons/LikeActiveIcon";
-import { LikeInactiveIcon } from "@/components/SvgIcons/LikeInactiveIcon";
+import cn from "classnames";
 import s from "./Navigation.module.scss";
+
+type TNavigationVariant = "primary" | "secondary";
 
 interface IValue {
   key: string;
@@ -17,12 +22,25 @@ interface INavigationProps {
 }
 
 const Navigation: FC<INavigationProps> = ({ value }) => {
+  const pathName = usePathname();
+  const [variant, setVariant] =
+    useState<TNavigationVariant>("primary");
   const likeMeals = useLikeMealsStore(
     (state) => state.meals,
   );
 
+  useEffect(() => {
+    if (pathName === "/") setVariant("primary");
+    else setVariant("secondary");
+  }, [pathName]);
+
   return (
-    <div className={s.navigation}>
+    <div
+      className={cn(
+        s.navigation,
+        s[`navigation_${variant}`],
+      )}
+    >
       {value.slice(0, value.length / 2).map((val) => (
         <div key={val.key} className={s.linkWrapper}>
           <Link className={s.link} href={val.href}>

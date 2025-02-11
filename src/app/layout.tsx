@@ -11,6 +11,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import cn from "classnames";
 
+
 const moncerat = Montserrat({
   weight: ["400"],
   subsets: ["cyrillic"],
