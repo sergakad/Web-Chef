@@ -2,28 +2,6 @@
     gap: 162px;
 }
 
-.mainBackground {
-  background-image: url("/images/main-background.png");
-  height: 995px;
-  position: relative;
-  top: -133px;
-}
-
-.mainContent {
-  display: flex;
-  flex-direction: column;
-  gap: 62px;
-  position: absolute;
-  top: 243px;
-  left: 114px;
-  max-width: 642px;
-}
-
-.text {
-  color: var(--white);
-  font-size: 24px;
-}
-
 .title {
   font-size: 64px;
   margin: auto;

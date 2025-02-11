@@ -1,23 +1,30 @@
 .header {
   z-index: 1;
-}
-.link {
-  text-decoration: none;
-  color: inherit;
-}
-.contentWrapper {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
 }
-.content {
-  border: 2px solid var(--main);
-  border-radius: 20px;
-  height: 80px;
-  align-content: center;
-  background-color: var(--main-light);
-  padding: 0 20px;
+
+.mainBackground {
+  background-image: url("/images/main-background.png");
+  height: 995px;
+  width: 1900px;
   position: relative;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+  top: -113px;
+  z-index: -1;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  position: absolute;
+  top: 243px;
+  left: 114px;
+  max-width: 642px;
+}
+
+.text {
+  color: var(--white);
+  font-size: 24px;
 }
