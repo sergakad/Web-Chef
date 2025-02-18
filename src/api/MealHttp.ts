@@ -2,6 +2,7 @@ import {
   IMeals,
   IMealRecipe,
   ISearchMeals,
+  IMeal,
 } from "@/shared/interfaces/meal.interface";
 import { ErrorHandler } from "./ErrorHandler";
 import { $api } from ".";
@@ -26,9 +27,9 @@ const GetCategoryMeals = async (
 
 const GetMeal = async (
   id: number,
-): Promise<IMealRecipe | string> => {
+): Promise<IMeal | string> => {
   try {
-    const { data } = await $api.get<IMealRecipe>(
+    const { data } = await $api.get<IMeal>(
       `lookup.php?i=${id}`,
       {
         headers: { Accept: "application/json" },

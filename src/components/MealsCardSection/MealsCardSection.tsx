@@ -17,11 +17,7 @@ const MealsCardSection: FC<IMealsCardSectionProps> = ({
         return (
           <MealCard
             key={meal.idMeal}
-            id={meal.idMeal}
-            name={meal.strMeal}
-            image={meal.strMealThumb}
-            strArea={meal.strArea}
-            strCategory={meal.strCategory}
+            meal={meal}
           />
         );
       })}

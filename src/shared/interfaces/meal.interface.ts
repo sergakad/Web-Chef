@@ -4,7 +4,7 @@ export interface IMeal {
   strCategory?: string;
   strArea?: string;
   strMealThumb: string;
-  strTags?: string | null; 
+  strTags?: string | null;
   strInstructions?: string;
   strIngredient?: string[];
   strMeasure?: string[];
@@ -15,6 +15,12 @@ export interface IMeals {
   meals: IMeal[];
   setMeals: (val: IMeal[]) => void;
   deleteMeal?: (idMeal: number) => void;
+}
+
+export interface IRandomMeals {
+  randomMeals: IMeal[];
+  resetRandomMeals: () => void;
+  getRandomMeals: () => void;
 }
 
 export interface IMealRecipe {

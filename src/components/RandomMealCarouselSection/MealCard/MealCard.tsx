@@ -1,78 +1,29 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/UI/Badge";
-import { Difficulty, difficultyLevelCalc } from "@/components/UI/Difficulty";
+import { Difficulty } from "@/components/UI/Difficulty";
 import { Like } from "@/components/UI/Like";
-import { GetMeal } from "@/api/MealHttp";
-import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
-import { TLikeState } from "@/shared/types/like-state.types";
+import { IMeal } from "@/shared/interfaces/meal.interface";
 import s from "./MealCard.module.scss";
 
 interface IMealProps {
-  id: number;
-  name?: string;
-  image?: string;
-  category?: string;
-  area?: string;
+  meal: IMeal;
 }
 
-const MealCard: FC<IMealProps> = ({
-  id,
-  name,
-  category,
-  area,
-  image,
-}) => {
-  const likeMeals = useLikeMealsStore(
-    (state) => state.meals,
-  );
-  const setLikeMeal = useLikeMealsStore(
-    (state) => state.setMeals,
-  );
-  const deleteLikeMeal = useLikeMealsStore(
-    (state) => state.deleteMeal,
-  );
-  const [like, setLike] = useState<TLikeState>("inactive");
-  const [difficultyLevel, setDifficultyLevel] =
-    useState<number>(0);
-
-  const likeHandler = () => {
-    if (like === "active") {
-      setLike("inactive");
-      if (deleteLikeMeal) deleteLikeMeal(id);
-    }
-    if (like === "inactive") {
-      setLike("active");
-      setLikeMeal([
-        {
-          idMeal: id,
-          strMeal: name || "",
-          strMealThumb: image || "",
-        },
-      ]);
-    }
-  };
-
-  useEffect(() => {
-    const exist = likeMeals.some((el) => el.idMeal === id);
-    if (exist) {
-      setLike("active");
-    } else {
-      setLike("inactive");
-    }
-    (async () => {
-      const data = await GetMeal(id);
-      if (typeof data === "object") {
-        setDifficultyLevel(difficultyLevelCalc(data));
-      }
-    })();
-  }, []);
+const MealCard: FC<IMealProps> = ({ meal }) => {
+  const {
+    idMeal: id,
+    strMeal: name,
+    strArea: area,
+    strCategory: category,
+    strMealThumb: image,
+  } = meal;
 
   return (
     <div>
       <div className={s.likeWrapper}>
-        <Like onClick={likeHandler} state={like} />
+        <Like meal={meal} />
       </div>
       <Link className={s.link} href={`${id}`}>
         <div className={s.imageWrapper}>
@@ -92,9 +43,7 @@ const MealCard: FC<IMealProps> = ({
                 <Badge>{category}</Badge>
                 <Badge>{area}</Badge>
               </div>
-              <Difficulty
-                difficultyLevel={difficultyLevel}
-              />
+              <Difficulty meal={meal} />
             </div>
           </div>
         </div>

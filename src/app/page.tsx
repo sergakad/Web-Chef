@@ -2,7 +2,6 @@
 
 import { RandomMealCarouselSection } from "@/components/RandomMealCarouselSection";
 import { IngredientsCardSection } from "@/components/IngredientsCardSection";
-import { Search } from "@/components/Search";
 import { AdviceCardCarouselSection } from "@/components/AdviceCardCarouselSection";
 import s from "./page.module.scss";
 

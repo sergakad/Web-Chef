@@ -5,7 +5,7 @@ import { IIngredients } from "@/shared/interfaces/ingredient.interface";
 export const useIngredientsStore = create<IIngredients>()(
   devtools((set) => ({
     ingredients: [],
-    setIngredients: async (val) => {
+    setIngredients: (val) => {
       set({ ingredients: val });
     },
   })),

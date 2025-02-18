@@ -7,18 +7,29 @@ export const useLikeMealsStore = create<IMeals>()(
     meals: JSON.parse(
       localStorage.getItem("likeMeals") || "[]",
     ),
-    setMeals: (val) => {
-      set((state) => ({
-        ...state,
-        meals: [...state.meals, ...val],
-      }));
+
+    setMeals: (meal) => {
+      set((state) => {
+        const updateMeals = [...state.meals, ...meal];
+        localStorage.setItem(
+          "likeMeals",
+          JSON.stringify(updateMeals),
+        );
+        return { meals: updateMeals };
+      });
     },
+
     deleteMeal: (idMeal) => {
-      set((state) => ({
-        meals: state.meals.filter(
+      set((state) => {
+        const updateMeals = state.meals.filter(
           (meal) => meal.idMeal !== idMeal,
-        ),
-      }));
+        );
+        localStorage.setItem(
+          "likeMeals",
+          JSON.stringify(updateMeals),
+        );
+        return { meals: updateMeals };
+      });
     },
   })),
 );

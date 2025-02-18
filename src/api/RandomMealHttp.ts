@@ -1,12 +1,12 @@
-import { IMeals } from "@/shared/interfaces/meal.interface";
+import { IMeal } from "@/shared/interfaces/meal.interface";
 import { ErrorHandler } from "./ErrorHandler";
 import { $api } from ".";
 
 const GetRandomMeal = async (): Promise<
-  IMeals | string
+  IMeal | string
 > => {
   try {
-    const { data, status } = await $api.get<IMeals>(
+    const { data } = await $api.get<IMeal>(
       "random.php",
       {
         headers: { Accept: "application/json" },

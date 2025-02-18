@@ -26,6 +26,12 @@ const Navigation: FC<INavigationProps> = ({
     (state) => state.meals,
   );
 
+  const leftPart = value.slice(0, value.length / 2);
+  const rightPart = value.slice(
+    value.length / 2,
+    value.length,
+  );
+
   return (
     <div
       className={cn(
@@ -33,25 +39,24 @@ const Navigation: FC<INavigationProps> = ({
         s[`navigation_${variant}`],
       )}
     >
-      {value.slice(0, value.length / 2).map((val) => (
+      {leftPart.map((val) => (
         <div key={val.key} className={s.linkWrapper}>
           <Link className={s.link} href={val.href}>
-            {val.name === "Likes" &&
-              likeMeals.length > 0 && (
-                <LikeActiveIcon className={s.like}>
-                  <text
-                    x="50%"
-                    y="50%"
-                    fontSize="10"
-                    fill="white"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fontStyle="normal"
-                  >
-                    {likeMeals.length}
-                  </text>
-                </LikeActiveIcon>
-              )}
+            {val.name === "Likes" && !!likeMeals.length && (
+              <LikeActiveIcon className={s.like}>
+                <text
+                  x="50%"
+                  y="50%"
+                  fontSize="10"
+                  fill="white"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontStyle="normal"
+                >
+                  {likeMeals.length}
+                </text>
+              </LikeActiveIcon>
+            )}
             {val.name}
           </Link>
         </div>
@@ -59,15 +64,13 @@ const Navigation: FC<INavigationProps> = ({
       <div className={s.logoWrapper}>
         <Logo />
       </div>
-      {value
-        .slice(value.length / 2, value.length)
-        .map((val) => (
-          <div key={val.key} className={s.linkWrapper}>
-            <Link className={s.link} href={val.href}>
-              {val.name}
-            </Link>
-          </div>
-        ))}
+      {rightPart.map((val) => (
+        <div key={val.key} className={s.linkWrapper}>
+          <Link className={s.link} href={val.href}>
+            {val.name}
+          </Link>
+        </div>
+      ))}
     </div>
   );
 };

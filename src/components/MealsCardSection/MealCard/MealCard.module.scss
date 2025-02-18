@@ -32,15 +32,18 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  width: 100%;
+  width: 60%;
   padding-left: 54px;
   padding-right: 54px;
 }
 
-.name {
-  font-size: 40px;
+.link {
   text-decoration: none;
   color: inherit;
+}
+
+.name {
+  font-size: 40px;
 }
 
 .badgeWrapper {

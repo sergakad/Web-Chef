@@ -1,29 +1,18 @@
 import { FC } from "react";
 import Image from "next/image";
-import { TLikeState } from "@/shared/types/like-state.types";
 import { useMealStore } from "@/shared/stores/meal-store";
 import { Difficulty, Badge, Like } from "@/components/UI";
-
 import s from "./MealRecipe.module.scss";
 
-interface IMealRecipeProps {
-  likeHandler: () => void;
-  like: TLikeState;
-  difficultyLevel: number;
-}
-
-const MealRecipe: FC<IMealRecipeProps> = ({
-  likeHandler,
-  like,
-  difficultyLevel,
-}) => {
+const MealRecipe: FC = () => {
   const meal = useMealStore((state) => state.meal);
+  
   return (
     <div className={s.recipeCard}>
       <div className={s.recipeSection}>
         <div className={s.imageWrapper}>
           <div className={s.likeWrapper}>
-            <Like state={like} onClick={likeHandler} />
+            <Like meal={meal} />
           </div>
           <Image
             className={s.image}
@@ -56,7 +45,7 @@ const MealRecipe: FC<IMealRecipeProps> = ({
             <div className={s.difficultyWrapper}>
               <span>Difficulty:</span>
               <Difficulty
-                difficultyLevel={difficultyLevel}
+                meal={meal}
               />
             </div>
           </div>
