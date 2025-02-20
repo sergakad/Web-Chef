@@ -2,6 +2,7 @@
 
 import { MealsCardSection } from "@/components/MealsCardSection";
 import { useLikeMealsStore } from "@/shared/stores/like-meals-store";
+import { Button } from "@/components/UI";
 import s from "./page.module.scss";
 
 export default function Like() {
@@ -10,8 +11,9 @@ export default function Like() {
   );
 
   return (
-    <main>
-      <h2 className={s.title}>Did you like it</h2>
+    <main className={s.content}>
+      <h2 className={s.title}>Likes</h2>
+      <Button variant="back"/>
       {likeMeals.length !== 0 ? (
         <MealsCardSection meals={likeMeals} />
       ) : (

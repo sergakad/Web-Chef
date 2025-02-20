@@ -23,8 +23,8 @@ const CategoryCard: FC<ICategoryCard> = ({
           </div>
           <div className={s.imageWrapper}>
             <Image
-              className={s.image}
-              src={image || ''}
+              className={`url(${image})`}
+              src={image || ""}
               alt="Title"
               sizes="100wv"
               fill
