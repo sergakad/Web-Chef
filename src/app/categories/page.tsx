@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Loader } from "@/components/UI/Loader";
+import { Loader, Button } from "@/components/UI";
 import { CategoryCardSection } from "@/components/CategoryCardSection";
 import { useCategoriesStore } from "@/shared/stores/categories-store";
 import { GetCategories } from "@/api/CategoryHttp";
@@ -25,10 +25,11 @@ export default function Categories() {
   }, []);
 
   return (
-    <main className={s.main}>
+    <main className={s.content}>
       <h2 className={s.title}>Categories</h2>
+      <Button variant="back" />
       {isLoadingCategories ? (
-        <Loader/>
+        <Loader />
       ) : (
         <CategoryCardSection />
       )}

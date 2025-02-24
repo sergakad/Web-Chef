@@ -5,24 +5,56 @@
       "backgroundImage": "/images/category-img/1.jpg"
     },
     {
-      "id": "1",
-      "backgroundImage": "/images/category-img/1.jpg"
+      "id": "2",
+      "backgroundImage": "/images/category-img/2.jpg"
     },
     {
-      "id": "1",
-      "backgroundImage": "/images/category-img/1.jpg"
+      "id": "3",
+      "backgroundImage": "/images/category-img/3.jpg"
     },
     {
-      "id": "1",
-      "backgroundImage": "/images/category-img/1.jpg"
+      "id": "4",
+      "backgroundImage": "/images/category-img/4.jpg"
     },
     {
-      "id": "1",
-      "backgroundImage": "/images/category-img/1.jpg"
+      "id": "5",
+      "backgroundImage": "/images/category-img/5.jpg"
     },
     {
-      "id": "1",
-      "backgroundImage": "/images/category-img/1.jpg"
+      "id": "6",
+      "backgroundImage": "/images/category-img/6.jpg"
+    },
+    {
+      "id": "7",
+      "backgroundImage": "/images/category-img/7.jpg"
+    },
+    {
+      "id": "8",
+      "backgroundImage": "/images/category-img/8.jpg"
+    },
+    {
+      "id": "9",
+      "backgroundImage": "/images/category-img/9.jpg"
+    },
+    {
+      "id": "10",
+      "backgroundImage": "/images/category-img/10.jpg"
+    },
+    {
+      "id": "11",
+      "backgroundImage": "/images/category-img/11.jpg"
+    },
+    {
+      "id": "12",
+      "backgroundImage": "/images/category-img/12.jpg"
+    },
+    {
+      "id": "13",
+      "backgroundImage": "/images/category-img/13.jpg"
+    },
+    {
+      "id": "14",
+      "backgroundImage": "/images/category-img/14.jpg"
     }
   ]
 }

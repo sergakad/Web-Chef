@@ -36,6 +36,9 @@ const CategoryCardSection: FC = () => {
       ) : (
         <div className={s.cardSection}>
           {categories.map((category) => {
+            const categoryImage = categoriesImage.find(
+              (cat) => cat.id === category.idCategory,
+            );
             return (
               <CategoryCard
                 key={category.idCategory}
@@ -43,7 +46,9 @@ const CategoryCardSection: FC = () => {
                 description={
                   category.strCategoryDescription
                 }
-                backgroundImage={categoriesImage[1].backgroundImage}
+                backgroundImage={
+                  categoryImage?.backgroundImage
+                }
               />
             );
           })}
