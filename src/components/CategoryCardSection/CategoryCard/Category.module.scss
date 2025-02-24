@@ -1,71 +1,67 @@
+.cardWrapper {
+  // height: 300px;
+}
+
+.card {
+  height: 239px;
+  width: 398px;
+  border-bottom-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+
 .link {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
-.card {
-  height: 544px;
-  width: 440px;
-  padding: 20px;
-  border-radius: 20px;
-  border: 2px solid var(--main);
-  background-color: var(--main-light);
-  display: flex;
-  gap: 20px;
-}
-
-.card:hover {
-  box-shadow: 0px 0px 10px 20px var(--gray);
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.imageWrapper {
-  position: relative;
-  width: auto;
-  height: 250px;
-}
-
-.image {
-  border-radius: 20px;
-  object-fit: cover;
-}
-
-.nameWrapper {
-  position: relative;
-  height: 60px;
-  width: fit-content;
-  padding: 10px;
-  background-color: var(--main);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-items: left;
-}
 
 .name {
   color: var(--white);
+  font-size: 32px;
 }
 
 .descriptionWrapper {
-  // min-height: 50px;
-  height: 150px;
-  // height: 100%;
+  width: 398px;
+  height: auto;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  overflow-y: clip; // адаптировать
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  position: relative;
+  transform: translateY(
+    calc(239px + var(--description-height))
+  );
+  //  transform: translateY( - var(--description-height));
+  z-index: 1;
   word-wrap: break-word;
 }
 
+.description {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
 .descriptionWrapper:hover {
-  height: 100%;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--main) var(--gray);
-  transition: ease-in 0.5s;
+  transition: all ease-in 0.5s;
+  transform: translateY(-50px);
+  height: auto;
+}
+
+.barrier {
+  height: 4px;
+  width: 144px;
+  border-radius: 67px;
+  background-color: var(--gray2);
+  position: absolute;
+  bottom: 8px;
 }
