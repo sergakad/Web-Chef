@@ -26,7 +26,7 @@ const CategoryCard: FC<ICategoryCard> = ({
   const descriptionHandleMouseLeave = () => {
     hoverTimeout = setTimeout(() => {
       setDescriptionHovered(false);
-    }, 500);
+    }, 300);
   };
 
   return (
