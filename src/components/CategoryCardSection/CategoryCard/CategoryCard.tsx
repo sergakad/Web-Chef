@@ -14,15 +14,18 @@ const CategoryCard: FC<ICategoryCard> = ({
   description,
   backgroundImage,
 }) => {
-  const [isHovered, setHovered] = useState<boolean>(false);
+  let hoverTimeout: NodeJS.Timeout;
+  const [isDescriptionHovered, setDescriptionHovered] =
+    useState<boolean>(false);
 
-  const handleMouseEnter = () => {
-    setHovered(true);
+  const descriptionHandleMouseEnter = () => {
+    clearTimeout(hoverTimeout);
+    setDescriptionHovered(true);
   };
-  
-  const handleMouseLeave = () => {
-    setTimeout(() => {
-      setHovered(false);
+
+  const descriptionHandleMouseLeave = () => {
+    hoverTimeout = setTimeout(() => {
+      setDescriptionHovered(false);
     }, 500);
   };
 
@@ -30,7 +33,7 @@ const CategoryCard: FC<ICategoryCard> = ({
     <div
       className={cn(
         s.cardWrapper,
-        s[`cardWrapperHovered_${isHovered}`],
+        s[`cardWrapperHovered_${isDescriptionHovered}`],
       )}
     >
       <Link className={s.link} href={`/categories/${name}`}>
@@ -44,9 +47,14 @@ const CategoryCard: FC<ICategoryCard> = ({
         </div>
       </Link>
       <div
-        className={s.descriptionWrapper}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter}
+        className={cn(
+          s.descriptionWrapper,
+          s[
+            `descriptionWrapperHovered_${isDescriptionHovered}`
+          ],
+        )}
+        onMouseLeave={descriptionHandleMouseLeave}
+        onMouseEnter={descriptionHandleMouseEnter}
       >
         <span className={s.description}>{description}</span>
         <div className={s.barrier} />

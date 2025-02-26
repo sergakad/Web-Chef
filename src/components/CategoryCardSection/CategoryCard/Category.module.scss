@@ -23,9 +23,10 @@
   position: relative;
   top: -70px;
   transition: all 0.5s ease-in-out;
-  &:hover {
-    max-height: 1000px;
-  }
+}
+
+.descriptionWrapperHovered_true {
+  max-height: 1000px;
 }
 
 .card {
