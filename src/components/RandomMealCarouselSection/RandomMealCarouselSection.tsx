@@ -3,6 +3,7 @@ import { Loader } from "@/components/UI/Loader";
 import { CarouselSection } from "@/components/UI/CarouselSection";
 import { useRandomMealsStore } from "@/shared/stores/random-meals-store";
 import { MealCard } from "./MealCard";
+import s from './RandomMealCarouselSection.module.scss'
 
 const RandomMealCarouselSection: FC = () => {
   const { randomMeals, getRandomMeals, resetRandomMeals } =
@@ -27,7 +28,7 @@ const RandomMealCarouselSection: FC = () => {
       {isLoadingRandomMeals ? (
         <Loader />
       ) : (
-        <div>
+        <div className={s.randomMealCarousel}>
           <CarouselSection
             desktopItemsPerView={3}
             tabletItemsPerView={3}

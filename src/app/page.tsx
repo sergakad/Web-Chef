@@ -10,16 +10,13 @@ export default function Home() {
     <main className={s.home}>
       <div className={s.section}>
         <h2 className={s.title}>Cook it right now</h2>
-        <div className={s.randomMealCarousel}>
-          <RandomMealCarouselSection />
-        </div>
+        <RandomMealCarouselSection />
       </div>
       <AdviceCardCarouselSection />
       <div className={s.section}>
         <h2 className={s.title}>Ingredients & Recipes</h2>
         <IngredientsCardSection />
       </div>
-      <h2 className={s.title}>Categories</h2>
     </main>
   );
 }

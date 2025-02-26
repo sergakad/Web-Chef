@@ -29,9 +29,9 @@
 }
 
 .recipe {
-  padding: 60px 44px 44px 44px;
+  padding: 60px 44px 60px 44px;
   width: 880px;
-  min-height: 800px;
+  max-height: fit-content;
   background-color: var(--gray);
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
@@ -40,6 +40,7 @@
   gap: 20px;
   font-size: 24px;
   line-height: 36px;
+    margin-bottom: 200px;
 }
 
 .ingredientsSection {
@@ -47,11 +48,10 @@
   flex-direction: column;
   gap: 80px;
   width: 624px;
-  min-height: 1710px;
+  min-height: 75vh;
+  max-height: 1500px !important;
   background-color: var(--main);
-  padding-top: 50px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 50px 40px 200px 40px;
   border-top-right-radius: 60px;
   border-top-left-radius: 60px;
   font-size: 24px;

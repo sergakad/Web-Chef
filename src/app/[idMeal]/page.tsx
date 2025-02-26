@@ -26,7 +26,7 @@ export default function MealPage() {
   }, []);
 
   return (
-    <main>
+    <main className={s.content}>
       <Button className={s.button} variant="back" />
       {isLoading ? <Loader /> : <MealRecipe />}
     </main>

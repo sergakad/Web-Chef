@@ -31,9 +31,9 @@ export default function Category() {
   }, []);
 
   return (
-    <main>
-      <Button variant="back"/>
+    <main className={s.content}>
       <h2 className={s.title}>{nameCategory}</h2>
+      <Button variant="back" />
       {isLoadingMeals ? (
         <Loader />
       ) : (
