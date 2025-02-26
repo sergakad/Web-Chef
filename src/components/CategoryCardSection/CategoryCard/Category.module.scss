@@ -2,8 +2,8 @@
   width: 398px;
   height: 310px;
   transition:
-    z-index 0.5s ease-in-out,
-    transform 0.5s ease-in-out;
+    z-index 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .cardWrapperHovered_true {
@@ -13,7 +13,7 @@
 
 .descriptionWrapper {
   width: 100%;
-  min-height: 297px;
+  min-height: 100px;
   background-color: var(--gray);
   display: flex;
   flex-direction: column;
@@ -21,10 +21,12 @@
   border-bottom-right-radius: 60px;
   border-bottom-left-radius: 60px;
   position: relative;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    max-height: 1000px;
-  }
+  top: -70px;
+  transition: all 0.3s ease-in-out;
+}
+
+.descriptionWrapperHovered_true {
+  max-height: 1000px;
 }
 
 .card {
@@ -36,9 +38,15 @@
   align-items: center;
   justify-content: center;
   background-size: cover;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
+  z-index: 2;
+
+  &:hover {
+    transform: scale(1.05);
+    z-index: 999;
+  }
 
   &::after {
     content: "";
@@ -63,15 +71,13 @@
 }
 
 .description {
-  padding: 0 20px;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  padding: 80px 20px 40px;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition:
-    opacity 0.5s ease-in-out,
-    max-height 0.5s ease-in-out;
+    opacity 0.3s ease-in-out,
+    max-height 0.3s ease-in-out;
 }
 
 .descriptionWrapper:hover > .description {
@@ -81,9 +87,9 @@
 
 .barrier {
   height: 4px;
-  width: 144px;
+  width: 120px;
   border-radius: 67px;
   background-color: var(--gray2);
   position: absolute;
-  bottom: 8px;
+  bottom: 12px;
 }

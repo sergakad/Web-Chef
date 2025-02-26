@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import Link from "next/link";
-import { useCategoryMouseStateStore } from "@/shared/stores/categories-store";
 import cn from "classnames";
 import s from "./Category.module.scss";
 
@@ -15,51 +14,48 @@ const CategoryCard: FC<ICategoryCard> = ({
   description,
   backgroundImage,
 }) => {
-  const [isHovered, setHovered] = useState<boolean>(false);
-  const { categoryMouseState, setCategoryMouseState } =
-    useCategoryMouseStateStore((state) => state);
+  let hoverTimeout: NodeJS.Timeout;
+  const [isDescriptionHovered, setDescriptionHovered] =
+    useState<boolean>(false);
 
-  const handleMouseEnter = () => {
-    setHovered(true);
-    if (categoryMouseState === "leave")
-      setCategoryMouseState("enter");
+  const descriptionHandleMouseEnter = () => {
+    clearTimeout(hoverTimeout);
+    setDescriptionHovered(true);
   };
 
-  const handleMouseLeave = () => {
-    (async () => {
-      setTimeout(() => {
-        setHovered(false);
-      }, 100);
-      if (categoryMouseState === "enter")
-        setCategoryMouseState("leave");
-    })();
+  const descriptionHandleMouseLeave = () => {
+    hoverTimeout = setTimeout(() => {
+      setDescriptionHovered(false);
+    }, 300);
   };
 
   return (
     <div
       className={cn(
         s.cardWrapper,
-        s[`cardWrapperHovered_${isHovered}`],
+        s[`cardWrapperHovered_${isDescriptionHovered}`],
       )}
     >
-      <div
-        className={s.descriptionWrapper}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter}
-      >
-        <Link
-          className={s.link}
-          href={`/categories/${name}`}
+      <Link className={s.link} href={`/categories/${name}`}>
+        <div
+          className={s.card}
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+          }}
         >
-          <div
-            className={s.card}
-            style={{
-              backgroundImage: `url(${backgroundImage})`,
-            }}
-          >
-            <h3 className={s.name}>{name}</h3>
-          </div>
-        </Link>
+          <h3 className={s.name}>{name}</h3>
+        </div>
+      </Link>
+      <div
+        className={cn(
+          s.descriptionWrapper,
+          s[
+            `descriptionWrapperHovered_${isDescriptionHovered}`
+          ],
+        )}
+        onMouseLeave={descriptionHandleMouseLeave}
+        onMouseEnter={descriptionHandleMouseEnter}
+      >
         <span className={s.description}>{description}</span>
         <div className={s.barrier} />
       </div>
