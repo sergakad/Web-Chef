@@ -1,3 +1,5 @@
+import { TCategoryMouseState } from "@/shared/types/category-mouse-state";
+
 export interface ICategory {
   idCategory: number;
   strCategory: string;
@@ -12,4 +14,9 @@ export interface ICategories {
 export interface ICategoriesImage {
   id: number;
   backgroundImage: string;
+}
+
+export interface ICategoryMouseState {
+  categoryMouseState: TCategoryMouseState;
+  setCategoryMouseState: (val: TCategoryMouseState) => void;
 }

@@ -1,6 +1,9 @@
+import {
+  ICategoryMouseState,
+  ICategories,
+} from "@/shared/interfaces/category.interface";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { ICategories } from "@/shared/interfaces/category.interface";
 
 export const useCategoriesStore = create<ICategories>()(
   devtools((set) => ({
@@ -10,3 +13,13 @@ export const useCategoriesStore = create<ICategories>()(
     },
   })),
 );
+
+export const useCategoryMouseStateStore =
+  create<ICategoryMouseState>()(
+    devtools((set) => ({
+      categoryMouseState: "leave",
+      setCategoryMouseState: (val) => {
+        set({ categoryMouseState: val });
+      },
+    })),
+  );

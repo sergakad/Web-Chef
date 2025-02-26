@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import Link from "next/link";
+import { useCategoryMouseStateStore } from "@/shared/stores/categories-store";
 import cn from "classnames";
 import s from "./Category.module.scss";
 
@@ -15,14 +16,23 @@ const CategoryCard: FC<ICategoryCard> = ({
   backgroundImage,
 }) => {
   const [isHovered, setHovered] = useState<boolean>(false);
+  const { categoryMouseState, setCategoryMouseState } =
+    useCategoryMouseStateStore((state) => state);
 
   const handleMouseEnter = () => {
     setHovered(true);
+    if (categoryMouseState === "leave")
+      setCategoryMouseState("enter");
   };
+
   const handleMouseLeave = () => {
-    setTimeout(() => {
-      setHovered(false);
-    }, 500);
+    (async () => {
+      setTimeout(() => {
+        setHovered(false);
+      }, 100);
+      if (categoryMouseState === "enter")
+        setCategoryMouseState("leave");
+    })();
   };
 
   return (

@@ -1,6 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import { CategoryCard } from "@/components/CategoryCardSection/CategoryCard";
-import { useCategoriesStore } from "@/shared/stores/categories-store";
+import {
+  useCategoriesStore,
+  useCategoryMouseStateStore,
+} from "@/shared/stores/categories-store";
 import { ICategoriesImage } from "@/shared/interfaces/category.interface";
 import { Loader } from "@/components/UI/Loader";
 import s from "./CategoryCardSection.module.scss";
@@ -17,6 +20,10 @@ const CategoryCardSection: FC = () => {
     ICategoriesImage[]
   >([]);
 
+  const { categoryMouseState, setCategoryMouseState } = useCategoryMouseStateStore(
+    (state) => state,
+  );
+
   useEffect(() => {
     (async () => {
       const response = await fetch(
@@ -27,6 +34,7 @@ const CategoryCardSection: FC = () => {
         setCategoriesImage(data.categories);
       setLoadingCategories(false);
     })();
+    setCategoryMouseState('leave');
   }, []);
 
   return (
@@ -34,25 +42,30 @@ const CategoryCardSection: FC = () => {
       {isLoadingCategories ? (
         <Loader />
       ) : (
-        <div className={s.cardSection}>
-          {categories.map((category) => {
-            const categoryImage = categoriesImage.find(
-              (cat) => cat.id === category.idCategory,
-            );
-            return (
-              <CategoryCard
-                key={category.idCategory}
-                name={category.strCategory}
-                description={
-                  category.strCategoryDescription
-                }
-                backgroundImage={
-                  categoryImage?.backgroundImage
-                }
-              />
-            );
-          })}
-        </div>
+        <>
+          {categoryMouseState === "enter" && (
+            <div className={s.overlay} />
+          )}
+          <div className={s.cardSection}>
+            {categories.map((category) => {
+              const categoryImage = categoriesImage.find(
+                (cat) => cat.id === category.idCategory,
+              );
+              return (
+                <CategoryCard
+                  key={category.idCategory}
+                  name={category.strCategory}
+                  description={
+                    category.strCategoryDescription
+                  }
+                  backgroundImage={
+                    categoryImage?.backgroundImage
+                  }
+                />
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );
