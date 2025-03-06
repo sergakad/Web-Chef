@@ -18,6 +18,7 @@ const MealCard: FC<IMealCardProps> = ({ meal }) => {
     strCategory: category,
     strArea: area,
     strTags: tags,
+    strIngredient: ingredients,
   } = meal;
 
   return (
@@ -31,14 +32,16 @@ const MealCard: FC<IMealCardProps> = ({ meal }) => {
         href={`/${id}`}
       >
         <div className={s.name}>{name}</div>
-        <div className={s.badgeWrapper}>
-          <Badge>{category}</Badge>
-          <Badge>{area}</Badge>
-          {tags
-            ?.split(",")
-            .map((tag) => <Badge key={tag}>{tag}</Badge>)}
-        </div>
-        <Difficulty meal={meal} />
+        {area && tags && (
+          <div className={s.badgeWrapper}>
+            <Badge>{category}</Badge>
+            <Badge>{area}</Badge>
+            {tags
+              ?.split(",")
+              .map((tag) => <Badge key={tag}>{tag}</Badge>)}
+          </div>
+        )}
+        {ingredients && <Difficulty meal={meal} />}
       </Link>
       <Link
         className={cn(s.link, s.imageWrapper)}
